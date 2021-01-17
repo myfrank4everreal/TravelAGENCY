@@ -28,7 +28,7 @@ SECRET_KEY = 'pb014p02__a7b47nycoh(*ve5bd#(9yq*5b(x*xi=gm6oxt6yv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['appdefrank.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['https://travel-agent-visa.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
