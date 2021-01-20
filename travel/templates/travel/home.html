@@ -15,7 +15,7 @@
           <p></p>
         </header>
         <div class="row justify-content-center">
-          <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href="{% url 'travel' %}"><img class="img-fluid" src="{% static 'travelsite/img/listing-tnumbnail-1.jpg' %}" alt="">
+          <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href=""><img class="img-fluid" src="{% static 'travelsite/img/listing-tnumbnail-1.jpg' %}" alt="">
               <div class="instagram-item-overlay p-5">
                 <h6> Learn about were you are going. Best tips and tricks</h6>
               </div></a>
@@ -24,20 +24,20 @@
               </div>
             </div>
 
-          <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href="{% url 'visa' %}"><img class="img-fluid" src="{% static 'travelsite/img/listing-tnumbnail-2.jpg' %}" alt="">
+          <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href=""><img class="img-fluid" src="{% static 'travelsite/img/listing-tnumbnail-2.jpg' %}" alt="">
               <div class="instagram-item-overlay p-5">
-                <h6>Geting your visa made easy with assurance </h6>
+                <h6>Geting a visa made easy </h6>
               </div></a>
               <div class="text-center mb-5 mt-1">
               <h5>VISA PROCESSING GUIDE</h5>
               </div>
               </div>
-          <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href="{% url 'job' %}"><img class="img-fluid" src="{% static 'travelsite/img/listing-tnumbnail-3.jpg' %}" alt="">
+          <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href=""><img class="img-fluid" src="{% static 'travelsite/img/listing-tnumbnail-3.jpg' %}" alt="">
               <div class="instagram-item-overlay p-5">
                 <h6>Your dream job delivered to you with out hustle</h6>
               </div></a>
               <div class="text-center mb-5 mt-1">
-              <h5>GET A JOB</h5>
+              <h5>Live and work abroad</h5>
               </div>
               </div>
           
@@ -145,15 +145,17 @@
           <p></p>
         </header>
         <div class="row">
-          <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href="#"><img class="img-fluid" src="{% static 'travelsite/img/listing-tnumbnail-1.jpg' %}" alt="">
+        {% for post in featured_blog %}
+          <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href="#"><img class="img-fluid" src="{{ post.image.url }}" alt="">
               <div class="instagram-item-overlay p-5">
-                <h6> this is the short description</h6>
+                <h6> {{ post.detail }}</h6>
               </div></a>
               <div class="text-center mb-5 mt-1">
-              <h5>this is the post title</h5>
+              <h5>{{ post.title }}</h5>
               </div>
             </div>
-
+          {% endfor %}
+{% comment %} 
           <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href="#"><img class="img-fluid" src="{% static 'travelsite/img/listing-tnumbnail-2.jpg' %}" alt="">
               <div class="instagram-item-overlay p-5">
                 <h6>We travel not to escape life, but for life not to escape us.</h6>
@@ -181,7 +183,7 @@
           <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href="#"><img class="img-fluid" src="{% static 'travelsite/img/listing-tnumbnail-2.jpg' %}" alt="">
               <div class="instagram-item-overlay p-5">
                 <h6>We travel not to escape life, but for life not to escape us.</h6>
-              </div></a></div>
+              </div></a></div> {% endcomment %}
         </div>
       </div>
     </section>

@@ -5,6 +5,10 @@
 
 
 {% block content %}
+
+    
+
+
 <section class="hero bg-center bg-cover" style="background: url({% static 'travelsite/img/hero-banner.jpg' %})">
       <div class="dark-overlay py-5">
         <div class="overlay-content">
@@ -21,92 +25,38 @@
         <div class="row mb-5">
           <div class="col-lg-8">
             <div class="row text-center">
-              <div class="col-lg-6 mb-5"><a href="{% url 'details' %}"><img class="img-fluid mb-4" src="{% static 'travelsite/img/listing-tnumbnail-3.jpg' %}" alt=""/></a>
+                {% for post in queryset %}
+
+              <div class="col-lg-6 mb-5"><a href="{{ post.get_absolute_url }}"><img class="img-fluid mb-4" src="{{post.image.url}}" alt=""/></a>
                 <ul class="list-inline small text-uppercase mb-0">
                   <li class="list-inline-item mr-0 text-gray align-middle">By </li>
-                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">Jimmy Roy</a></li>
+                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.author}}</a></li>
+                  
                   <li class="list-inline-item text-gray align-middle mr-0">|</li>
-                  <li class="list-inline-item text-gray align-middle">22 Mar 2018</li>
+                  <li class="list-inline-item text-gray align-middle">{{post.post_date|timesince}} ago</li>
                 </ul>
-                <h3 class="h4 mt-2"> <a class="reset-anchor" href="{% url 'details' %}">Guide to best markets</a></h3><a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">Travel guide</a>
-                <p class="text-small mb-1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.</p><a class="btn btn-link" href="index.html">Continue reading</a>
+                
+                <h3 class="h4 mt-2"> <a class="reset-anchor" href="{{ post.get_absolute_url }}">{{post.title}}</a></h3>
+                  
+                
+                  <a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">cat title</a>
+                
+
+                <p class="text-small mb-1">{{post.detail}}</p><a class="btn btn-link" href="{{ post.get_absolute_url }}">Continue reading</a>
               </div>
-              <div class="col-lg-6 mb-5"><a href="post.html"><img class="img-fluid mb-4" src="{% static 'travelsite/img/listing-tnumbnail-4.jpg' %}" alt=""/></a>
-                <ul class="list-inline small text-uppercase mb-0">
-                  <li class="list-inline-item mr-0 text-gray align-middle">By </li>
-                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">Jason Doe</a></li>
-                  <li class="list-inline-item text-gray align-middle mr-0">|</li>
-                  <li class="list-inline-item text-gray align-middle">22 Mar 2018</li>
-                </ul>
-                <h3 class="h4 mt-2"> <a class="reset-anchor" href="post.html">A day in Tailand</a></h3><a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">Travel guide</a>
-                <p class="text-small mb-1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.</p><a class="btn btn-link" href="index.html">Continue reading</a>
-              </div>
-              <div class="col-lg-6 mb-5"><a href="post.html"><img class="img-fluid mb-4" src="{% static 'travelsite/img/listing-tnumbnail-1.jpg' %}" alt=""/></a>
-                <ul class="list-inline small text-uppercase mb-0">
-                  <li class="list-inline-item mr-0 text-gray align-middle">By </li>
-                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">Jimmy Roy</a></li>
-                  <li class="list-inline-item text-gray align-middle mr-0">|</li>
-                  <li class="list-inline-item text-gray align-middle">22 Mar 2018</li>
-                </ul>
-                <h3 class="h4 mt-2"> <a class="reset-anchor" href="post.html">The complete travel guide</a></h3><a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">Travel guide</a>
-                <p class="text-small mb-1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.</p><a class="btn btn-link" href="index.html">Continue reading</a>
-              </div>
-              <div class="col-lg-6 mb-5"><a href="post.html"><img class="img-fluid mb-4" src="{% static 'travelsite/img/listing-tnumbnail-2.jpg' %}" alt=""/></a>
-                <ul class="list-inline small text-uppercase mb-0">
-                  <li class="list-inline-item mr-0 text-gray align-middle">By </li>
-                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">Jason Doe</a></li>
-                  <li class="list-inline-item text-gray align-middle mr-0">|</li>
-                  <li class="list-inline-item text-gray align-middle">22 Mar 2018</li>
-                </ul>
-                <h3 class="h4 mt-2"> <a class="reset-anchor" href="post.html">The top climbing tours</a></h3><a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">Travel guide</a>
-                <p class="text-small mb-1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.</p><a class="btn btn-link" href="index.html">Continue reading</a>
-              </div>
-              <div class="col-lg-6 mb-5"><a href="post.html"><img class="img-fluid mb-4" src="{% static 'travelsiteimg/listing-tnumbnail-5.jpg' %}" alt=""/></a>
-                <ul class="list-inline small text-uppercase mb-0">
-                  <li class="list-inline-item mr-0 text-gray align-middle">By </li>
-                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">Jimmy Roy</a></li>
-                  <li class="list-inline-item text-gray align-middle mr-0">|</li>
-                  <li class="list-inline-item text-gray align-middle">22 Mar 2018</li>
-                </ul>
-                <h3 class="h4 mt-2"> <a class="reset-anchor" href="post.html">Travel guide to Canada</a></h3><a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">Travel guide</a>
-                <p class="text-small mb-1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.</p><a class="btn btn-link" href="index.html">Continue reading</a>
-              </div>
-              <div class="col-lg-6 mb-5"><a href="post.html"><img class="img-fluid mb-4" src="{% static 'travelsite/img/listing-tnumbnail-6.jpg' %}" alt=""/></a>
-                <ul class="list-inline small text-uppercase mb-0">
-                  <li class="list-inline-item mr-0 text-gray align-middle">By </li>
-                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">Jason Doe</a></li>
-                  <li class="list-inline-item text-gray align-middle mr-0">|</li>
-                  <li class="list-inline-item text-gray align-middle">22 Mar 2018</li>
-                </ul>
-                <h3 class="h4 mt-2"> <a class="reset-anchor" href="post.html">Guide to best markets</a></h3><a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">Travel guide</a>
-                <p class="text-small mb-1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.</p><a class="btn btn-link" href="index.html">Continue reading</a>
-              </div>
-              <div class="col-lg-6 mb-5"><a href="post.html"><img class="img-fluid mb-4" src="{% static 'travelsite/img/listing-tnumbnail-3.jpg' %}" alt=""/></a>
-                <ul class="list-inline small text-uppercase mb-0">
-                  <li class="list-inline-item mr-0 text-gray align-middle">By </li>
-                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">Jimmy Roy</a></li>
-                  <li class="list-inline-item text-gray align-middle mr-0">|</li>
-                  <li class="list-inline-item text-gray align-middle">22 Mar 2018</li>
-                </ul>
-                <h3 class="h4 mt-2"> <a class="reset-anchor" href="post.html">Guide to best markets</a></h3><a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">Travel guide</a>
-                <p class="text-small mb-1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.</p><a class="btn btn-link" href="index.html">Continue reading</a>
-              </div>
-              <div class="col-lg-6 mb-5"><a href="post.html"><img class="img-fluid mb-4" src="{% static 'travelsite/img/listing-tnumbnail-4.jpg' %}" alt=""/></a>
-                <ul class="list-inline small text-uppercase mb-0">
-                  <li class="list-inline-item mr-0 text-gray align-middle">By </li>
-                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">Jimmy Roy</a></li>
-                  <li class="list-inline-item text-gray align-middle mr-0">|</li>
-                  <li class="list-inline-item text-gray align-middle">22 Mar 2018</li>
-                </ul>
-                <h3 class="h4 mt-2"> <a class="reset-anchor" href="post.html">A day in Tailand</a></h3><a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">Travel guide</a>
-                <p class="text-small mb-1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.</p><a class="btn btn-link" href="index.html">Continue reading</a>
-              </div>
-            </div>
+                {% endfor %}
+
+             </div>
             <!-- Listing navigation -->
             <div class="p-4 bg-light mb-5">
               <div class="row">
-                <div class="col-sm-6 text-center text-sm-left mb-2 mb-sm-0"><a class="btn btn-outline-secondary btn-sm" href="#"><i class="fas fa-angle-left mr-2"></i>Prev posts</a></div>
-                <div class="col-sm-6 text-center text-sm-right text-right"><a class="btn btn-outline-secondary btn-sm" href="#">Next posts<i class="fas fa-angle-right ml-2"></i></a></div>
+                {% if queryset.has_previous %}
+                <div class="col-sm-6 text-center text-sm-left mb-2 mb-sm-0"><a class="btn btn-outline-secondary btn-sm" href="?{{ page_request_var }}={{ queryset.previouse_page_number }}"><i class="fas fa-angle-left mr-2"></i>Prev posts</a></div>
+                {% endif %}
+              
+                {% if queryset.has_next %}
+                <div class="col-sm-6 text-center text-sm-right text-right"><a class="btn btn-outline-secondary btn-sm" href="?{{ page_request_var }}={{ queryset.next_page_number }}">Next posts<i class="fas fa-angle-right ml-2"></i></a></div>
+                {% endif %}
               </div>
             </div>
           </div>
@@ -133,8 +83,9 @@
             <!-- Newsletter widget -->
             <div class="px-4 py-5 bg-light mb-5 text-center">
               <h3 class="h5"><i class="far fa-envelope mr-2"></i>Join the family</h3>
-              <p class="text-small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-              <form action="#">
+              <p class="text-small text-muted">get the latest info</p>
+              <form action="." method = "POST">
+              {% csrf_token %}
                 <div class="form-group mb-1">
                   <input class="form-control form-control-sm" type="email" name="email" placeholder="Emaill address">
                 </div>
@@ -146,29 +97,18 @@
             <!-- Latest posts widget -->
             <div class="mb-5">
               <h3 class="h5">Latest posts</h3>
-              <p class="text-small text-muted mb-4">Lorem ipsum dolor sit, consectetur adipisicing elit, sed do eiusmod.</p>
+              <p class="text-small text-muted mb-4"></p>
               <ul class="list-unstyled">
-                <li class="media mb-1"><a href="post.html"><img src="{% static 'travelsite/img/recent-posts-thumb-1.jpg' %}" alt="" width="80"></a>
+              {% for post in most_recent_post %}
+                <li class="media mb-1"><a href="post.html"><img src="{{post.image.url}}" alt="" width="80"></a>
                   <div class="media-body ml-3">
-                    <p class="small text-primary text-uppercase mb-0">5 Aug 2018</p>
-                    <h6 class="mb-1"><a class="reset-anchor" href="post.html">The top climbing tours</a></h6>
-                    <p class="small text-muted">Lorem ipsum dolor sit, consectetur adipisicing elit, sed.</p>
+                    <p class="small text-primary  mb-0">{{post.post_date|timesince}} ago</p>
+                    <h6 class="mb-1"><a class="reset-anchor" href="post.html">{{post.title}}</a></h6>
+                    <p class="small text-muted">{{post.detail}}</p>
                   </div>
                 </li>
-                <li class="media mb-1"><a href="post.html"><img src="{% static 'travelsite/img/recent-posts-thumb-2.jpg' %}" alt="" width="80"></a>
-                  <div class="media-body ml-3">
-                    <p class="small text-primary text-uppercase mb-0">5 Aug 2018</p>
-                    <h6 class="mb-1"><a class="reset-anchor" href="post.html">Travel guide to Canada</a></h6>
-                    <p class="small text-muted">Lorem ipsum dolor sit, consectetur adipisicing elit, sed.</p>
-                  </div>
-                </li>
-                <li class="media"><a href="post.html"><img src="{% static 'travelsite/img/recent-posts-thumb-3.jpg' %}" alt="" width="80"></a>
-                  <div class="media-body ml-3">
-                    <p class="small text-primary text-uppercase mb-0">5 Aug 2018</p>
-                    <h6 class="mb-1"><a class="reset-anchor" href="post.html">A day in Tailand</a></h6>
-                    <p class="small text-muted mb-0">Lorem ipsum dolor sit, consectetur adipisicing elit, sed.</p>
-                  </div>
-                </li>
+                {% endfor %}
+                
               </ul>
             </div>
             <!-- Instagram widget -->

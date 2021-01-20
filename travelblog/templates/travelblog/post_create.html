@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+{{ form.media }}
+
+<div class='container justify-content-center mb-5 mt-5'>
+<form method = "POST" action="." enctype="multipart/form-data">
+  {% csrf_token %}
+   {% comment %} {{form.as_p|as_crispy_field}} {% endcomment %}
+   {{form|crispy}}
+
+
+  <button btn btn-primary type='submit'>submit</button>
+
+  </form>
+</div>
+
+
+{% endblock %}

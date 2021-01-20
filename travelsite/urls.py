@@ -15,9 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
+from travelblog.views import blogView, blogDetail, search, post_delete, post_create, post_update
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('travel.urls')),
-    path('blog/', include('travelblog.urls')),
+    path('tinymce/', include('tinymce.urls')),
+    path('search/', search, name= 'search' ),
+    
+    # path('blog/', include('travelblog.urls')),
+    path('blog/', blogView, name='blog'),
+    path('blog/<id>/', blogDetail, name='post_detail'),
+    path('create/', post_create, name='post-create'),
+    path('blog/<id>/update', post_update, name='post-update'),
+    path('blog/<id>/delete', post_delete, name='post-delete'),
 ]
+
+
+
+
+urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
