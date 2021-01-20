@@ -91,12 +91,22 @@ WSGI_APPLICATION = 'travelsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd1h9nd6l47785o',
+        'USER': 'zypcqdvezxqhup',
+        'PASSWORD': 'c9df2480c122369cb1d4bb738a11410296915ffbce4c9211eab424448e4d496f',
+        'HOST': 'ec2-184-72-162-198.compute-1.amazonaws.com'
     }
 }
+
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
