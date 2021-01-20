@@ -11,7 +11,7 @@
         <ul class="list-inline small text-uppercase mb-0">
           <li class="list-inline-item align-middle"><img class="rounded-circle shadow-sm" src="{% static 'travelsite/img/person-1.jpg' %}" alt="" width="40"/></li>
           <li class="list-inline-item mr-0 text-muted align-middle">By </li>
-          <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">Jason Doe</a></li>
+          <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.author}}</a></li>
           <li class="list-inline-item text-muted align-middle mr-0">|</li>
           <li class="list-inline-item text-muted align-middle mr-0">June 15, 2019</li>
           <li class="list-inline-item text-muted align-middle mr-0">|</li>
@@ -21,29 +21,9 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mb-5 mb-lg-0">
-            <p class="lead first-letter-styled line-height-lg">L orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.</p>
-            <div class="px-lg-5 mb-5">
-              <blockquote class="blockquote-custom">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</blockquote>
-            </div>
-            <h2>Heading level two</h2>
-            <p class="text-muted mb-4">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata.</p><img class="img-fluid mb-4" src="img/post-img-1.jpg" alt="">
-            <p class="text-muted mb-5">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata.</p>
-            <h3 class="mb-4">Heading level three</h3>
-            <ul class="list-check text-muted text-small mb-5">
-              <li class="mb-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
-              <li class="mb-1">Inventore magni sed error dignissimos repudiandae.</li>
-              <li class="mb-1">Aperiam cum, nisi sed aliquam soluta amet molestiae.</li>
-              <li class="mb-1">Consequatur sequi dolore, doloribus officia Nihil fugit.</li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p class="mb-5">Possimus animi modi praesentium quis delectus libero architecto ipsum sint iure amet rerum incidunt, harum facere voluptatibus eligendi. Velit sapiente omnis earum, facilis harum est debitis tenetur deserunt tempora explicabo!</p>
-            <div class="p-4 bg-light mb-5">
-              <ul class="list-inline mb-0">
-                <li class="list-inline-item mr-2 pr-lg-2"><a class="tag reset-anchor" href="#"><i class="fas fa-bookmark text-primary mr-2"></i>Travel</a></li>
-                <li class="list-inline-item mr-2 pr-lg-2"><a class="tag reset-anchor" href="#"><i class="fas fa-bookmark text-primary mr-2"></i>Lifestyle</a></li>
-                <li class="list-inline-item mr-2 pr-lg-2"><a class="tag reset-anchor" href="#"><i class="fas fa-bookmark text-primary mr-2"></i>Vacation</a></li>
-              </ul>
-            </div>
+            <div>
+            {{post.content}}
+
             <h3 class="h4 mb-4">Share this post</h3>
             <ul class="list-inline mb-5">
               <li class="list-inline-item mr-1 mb-3"><a class="social-link-share facebook" href="#"><i class="fab fa-facebook-f mr-2"></i>Share</a></li>
