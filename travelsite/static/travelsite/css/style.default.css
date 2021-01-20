@@ -1283,7 +1283,7 @@ a.text-hover-dark:focus, a.text-hover-dark:hover {
 }
 
 .bg-darker {
-  background: black !important;
+  background: #008037 !important;
 }
 
 .list-check {
@@ -2536,7 +2536,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #000 !important;
+  background-color: #008037 !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
