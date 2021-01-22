@@ -47,7 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    # AWS app
+    'storages',
 
+    # authentication apps
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -166,6 +169,36 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 django_heroku.settings(locals())
+
+# for aw3 configuration
+
+AWS_ACCESS_KEY_ID = "AKIA235CREQF3JH3WM7R"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORING_BUCKET_NAME = "travelsite-franklymade-bucket"
+
+
+# for django storages settings
+AWS_S3_FILE_OVERWRITE= "False"
+AWS_DEFAULT_ACL = "None"
+DEFAULT_FILE_STOREAGE= "storages.backends.s3boto3.S3Boto3Storage"
+
+
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # this is for tinyMCE Configuration
 TINYMCE_DEFAULT_CONFIG = {
