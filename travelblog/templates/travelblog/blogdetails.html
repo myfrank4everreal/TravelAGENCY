@@ -22,7 +22,7 @@
         <div class="row">
           <div class="col-lg-8 mb-5 mb-lg-0">
             <div>
-            {{post.content}}
+            {{post.richcontent|safe}}
              </div
 
             <h3 class="h4 mb-4">Share this post</h3>
@@ -31,6 +31,7 @@
               <li class="list-inline-item mr-1 mb-3"><a class="social-link-share twitter" href="#"><i class="fab fa-twitter mr-2"></i>Tweet</a></li>
               <li class="list-inline-item mr-1 mb-3"><a class="social-link-share instagram" href="#"><i class="fab fa-instagram mr-2"></i>Share</a></li>
             </ul>
+            {% if request.user.is_authenticated %}
             <h3 class="h4 mb-4">Leave a comment</h3>
             <form class="mb-5" action="." method='POST'> 
             {%csrf_token%}
@@ -50,6 +51,15 @@
                 </div>
               </div>
             </form>
+            {% else %}
+                <div class="form-group col-lg-12">
+              <a href = "{% url 'account_login' %}" class="btn btn-dark" type="submit">Login to comment</a>
+                </div>
+             
+
+            
+            {% endif %}
+
             <h3 class="h4 mb-4 d-flex align-items-center"><span>Comments</span><span class="text-small ml-3 text-gray">({{ post.comments.count}})</span></h3>
             <ul class="list-unstyled comments">
               {% comment %} <li>

@@ -1,6 +1,7 @@
 from django import forms
 from django.db.models import fields
 from django.forms import TextInput
+from crispy_forms.helper import FormHelper
 
 
 from .models import Blog, Comment
@@ -20,15 +21,19 @@ class BlogForm(forms.ModelForm):
         )
     )
 
+    def __init__(self, *args, **kwargs):
+        super(BlogForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_show_labels = False 
 
     class Meta:
         model = Blog
         # select the field we need in the create form
 
-        fields = ('title', 'detail', 'content', 'image',
-        'category', 'featuredpost')
+        fields = ['title', 'detail', 'content', 'image', 'category', 'featuredpost']
 
 
+        
 
 #  class="form-control" name="message" rows="5" placeholder="Leave your message"
 class CommentForm(forms.ModelForm):

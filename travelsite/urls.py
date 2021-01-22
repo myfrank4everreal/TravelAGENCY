@@ -32,6 +32,8 @@ urlpatterns = [
     path('create/', post_create, name='post-create'),
     path('blog/<id>/update', post_update, name='post-update'),
     path('blog/<id>/delete', post_delete, name='post-delete'),
+    
+    path('accounts/', include('allauth.urls')),
 ]
 
 

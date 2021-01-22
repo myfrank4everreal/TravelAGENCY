@@ -2,13 +2,16 @@ from django.db.models.query import QuerySet
 from django.shortcuts import redirect, render, get_object_or_404
 from django.db.models import Q
 from django.urls.base import reverse
-from .models import Blog, Author
+from .models import Blog, Author, PostView
 from .forms import CommentForm
 from .models import Comment
 from marketing.models import Signup
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from django.db import IntegrityError
 from .forms import BlogForm
+from django.core.checks import messages
+
 
 
 def get_author(user):
@@ -75,7 +78,16 @@ def blogView(request):
 
 
 def blogDetail(request, id):
+    most_recent = Blog.objects.order_by('-timestamp')[:3]
     post = get_object_or_404(Blog, id=id)
+    
+    # lets handle enernimouse user authentication error
+    if request.user.is_authenticated:
+        PostView.objects.get_or_create(user=request.user, post=post)
+
+    # PostView.objects.get_or_create(user=request.user, post=post)
+
+
     commentform = CommentForm(request.POST or None)
 
     if request.method == 'POST':
@@ -89,25 +101,42 @@ def blogDetail(request, id):
     
     context = {
         'post':post,
+        'most_recent':most_recent,
         'commentform':commentform,
     
     }
    
     return render(request, 'travelblog/blogdetails.html', context)
 
+# if request.user.is_authenticated:
+#         PostView.objects.get_or_create(user=request.user, post=post)
+
 def post_create(request):
-    form = BlogForm(request.POST or None, request.FILES or None)
+    err_msg = ''
+    message = ""
+    if request.user.is_authenticated:
+        try:
+            form = BlogForm(request.POST or None, request.FILES or None)
+            author = get_author(request.user)
+            
+            if request.method == "POST":
+                if form.is_valid():
+                    form.instance.author = author
+                    form.save()
 
-    author = get_author(request.user)
-    if request.method == "POST":
-        if form.is_valid():
-            form.instance.author = author
-            form.save()
-
-            return redirect(reverse("post_detail", kwargs={
-                'id':form.instance.id
-            }))
+                    return redirect(reverse("post_detail", kwargs={
+                        'id':form.instance.id
+                    }))
+        except IntegrityError as e :
+            e = "please contact admin  to gain access to post your blog"
+            err_msg = e
+            print(err_msg)
+    
+    message = err_msg
+    form = BlogForm()
     context = {
+        
+        'message':message,
         'form':form,
         }
 

@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'travel',
     'travelblog',
     'marketing',
-    'tinymce',
+    # 'tinymce',
+    'ckeditor',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,6 +46,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 # for the crispy-form
@@ -189,3 +195,10 @@ TINYMCE_DEFAULT_CONFIG = {
     'menubar': True,
     'statusbar': True,
     }
+
+# this is for the dajango authentification
+AUTHENTICATION_BACKENDS = [   
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',    
+]
+SITE_ID = 1

@@ -14,7 +14,20 @@
 
 
   <button btn btn-primary type='submit'>submit</button>
+  
+  {% if err_msg %}
+      <div class="alert alert-danger" role="alert">
+        {{err_msg}}
+    </div>
+    {% else %}
 
+    <div class="alert alert-success" role="alert">
+        Thanks for sharing
+      </div>
+      
+    {% endif %}
+
+     
   </form>
 </div>
 
