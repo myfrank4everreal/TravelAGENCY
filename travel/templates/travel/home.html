@@ -146,9 +146,9 @@
         </header>
         <div class="row">
         {% for post in featured_blog %}
-          <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href="#"><img class="img-fluid" src="{{ post.image.url }}" alt="">
+          <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href="{{ post.get_absolute_url }}"><img class="img-fluid" src="{{ post.image.url }}" alt="">
               <div class="instagram-item-overlay p-5">
-                <h6> {{ post.detail }}</h6>
+                <h6> <a href="{{ post.get_absolute_url }}" >{{ post.detail }}</a></h6>
               </div></a>
               <div class="text-center mb-5 mt-1">
               <h5>{{ post.title }}</h5>
