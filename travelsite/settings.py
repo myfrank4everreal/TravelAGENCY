@@ -118,8 +118,8 @@ DATABASES = {
 }
 
 
-# db_from_env = dj_database_url.config()
-# DATABASES['default'].update(db_from_env)
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -174,16 +174,22 @@ django_heroku.settings(locals())
 
 AWS_ACCESS_KEY_ID = "AKIA235CREQF3JH3WM7R"
 AWS_SECRET_ACCESS_KEY = "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"
-AWS_STORING_BUCKET_NAME = "travelsite-franklymade-bucket"
-
+AWS_STORAGE_BUCKET_NAME  = "travelsite-franklymade-bucket"
 
 # for django storages settings
-AWS_S3_FILE_OVERWRITE= "False"
-AWS_DEFAULT_ACL = "None"
-DEFAULT_FILE_STOREAGE= "storages.backends.s3boto3.S3Boto3Storage"
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE= 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_S3_HOST = 'us-east-2.amazonaws.com'
+AWS_S3_REGION_NAME = 'us-east-2'
+
+AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 
