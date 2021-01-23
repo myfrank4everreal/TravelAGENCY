@@ -9,13 +9,13 @@
         <h1>{{post.title}}</h1>
         <p class="mb-3">{{post.detail}}</p>
         <ul class="list-inline small text-uppercase mb-0">
-          <li class="list-inline-item align-middle"><img class="rounded-circle shadow-sm" src="{% static 'travelsite/img/person-1.jpg' %}" alt="" width="40"/></li>
+          {% comment %} <li class="list-inline-item align-middle"><img class="rounded-circle shadow-sm" src="{% static 'travelsite/img/person-1.jpg' %}" alt="" width="40"/></li> {% endcomment %}
           <li class="list-inline-item mr-0 text-muted align-middle">By </li>
           <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.author}}</a></li>
+          {% comment %} <li class="list-inline-item text-muted align-middle mr-0">|</li>
+          <li class="list-inline-item text-muted align-middle mr-0">post</li>
           <li class="list-inline-item text-muted align-middle mr-0">|</li>
-          <li class="list-inline-item text-muted align-middle mr-0">June 15, 2019</li>
-          <li class="list-inline-item text-muted align-middle mr-0">|</li>
-          <li class="list-inline-item text-muted align-middle">20 Comments</li>
+          <li class="list-inline-item text-muted align-middle">20 Comments</li> {% endcomment %}
         </ul>
       </div><img class="w-100 py-5" src="{% static 'travelsite/img/post-banner.jpg' %}" alt="">
       <div class="container">
@@ -114,7 +114,8 @@
             <div class="mb-5 text-center"><a class="category reset-anchor bg-cover bg-center mb-2" href="#" style="background: url({% static 'travelsite/img/category-1.jpg' %})">
                 <p class="category-title text-uppercase small">Travel guide</p></a><a class="category reset-anchor bg-cover bg-center mb-2" href="#" style="background: url({% static 'travelsite/img/category-2.jpg' %})">
                 <p class="category-title text-uppercase small">Lifestyle</p></a><a class="category reset-anchor bg-cover bg-center" href="#" style="background: url({% static 'travelsite/img/category-3.jpg' %})">
-                <p class="category-title text-uppercase small">jobs</p></a>
+                <p class="category-title text-uppercase small">Find job</p></a><a class="category reset-anchor bg-cover bg-center" href="#" style="background: url({% static 'travelsite/img/category-3.jpg' %})">
+
             </div>
             <!-- Newsletter widget -->
             <div class="px-4 py-5 bg-light mb-5 text-center">

@@ -26,6 +26,9 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('search/', search, name= 'search' ),
     
+    # for the job app
+    # path('jobfinder', include('jobfinder.urls')),
+
     # path('blog/', include('travelblog.urls')),
     path('blog/', blogView, name='blog'),
     path('blog/<id>/', blogDetail, name='post_detail'),
