@@ -26,5 +26,3 @@ def travelInfo(request):
 def visaInfo(request):
     return render(request, 'travel/visainfo.html' )
 
-def jobInfo(request):
-    return render(request, 'travel/jobinfo.html' )

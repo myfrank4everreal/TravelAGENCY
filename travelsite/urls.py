@@ -27,7 +27,7 @@ urlpatterns = [
     path('search/', search, name= 'search' ),
     
     # for the job app
-    # path('jobfinder', include('jobfinder.urls')),
+    path('presic-jobs/', include('jobs.urls')),
 
     # path('blog/', include('travelblog.urls')),
     path('blog/', blogView, name='blog'),

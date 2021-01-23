@@ -36,7 +36,7 @@ ALLOWED_HOSTS = ['https://travel-agent-visa.herokuapp.com/', '127.0.0.1']
 INSTALLED_APPS = [
     'travel',
     'travelblog',
-    # 'jobfinder',
+    'jobs',
     'marketing',
     # 'tinymce',
     'ckeditor',
