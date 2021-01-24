@@ -5,29 +5,68 @@
 {% block content %}
     <section class="py-5">
       <div class="container text-center">
-        <p class="h6 mb-0 text-uppercase text-primary">Lifestyle</p>
-        <h1>{{post.title}}</h1>
-        <p class="mb-3">{{post.detail}}</p>
+        <h4>{{post.company_name}}</h4>
+
+        <p class="h6 mb-0 text-uppercase text-primary">{{post.post_date}}</p>
+        <h1>{{post.job_title}}</h1>
+        <p class="mb-3">{{post.shotend_desc}}</p>
         <ul class="list-inline small text-uppercase mb-0">
-          {% comment %} <li class="list-inline-item align-middle"><img class="rounded-circle shadow-sm" src="{% static 'travelsite/img/person-1.jpg' %}" alt="" width="40"/></li> {% endcomment %}
+          <li class="list-inline-item align-middle"><img class="rounded-circle shadow-sm" src="{{post.user.profile_pic.url}}" alt="" width="40"/></li>
           <li class="list-inline-item mr-0 text-muted align-middle">By </li>
-          <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.author}}</a></li>
+          <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.company_name }}</a></li>
           {% comment %} <li class="list-inline-item text-muted align-middle mr-0">|</li>
           <li class="list-inline-item text-muted align-middle mr-0">post</li>
           <li class="list-inline-item text-muted align-middle mr-0">|</li>
           <li class="list-inline-item text-muted align-middle">20 Comments</li> {% endcomment %}
         </ul>
-      </div><img class="w-100 py-5" src="{{post.image.url}}" alt="">
+      </div>
+      <img class="w-100 py-5" src="" alt="">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mb-5 mb-lg-0">
+          
+          {% comment %} added from boostrap {% endcomment %}
             <div>
-            {{post.richcontent|safe}}
+                <div class="card" style="width: auto;">
+                    {% comment %} <img src="..." class="card-img-top" alt="..."> {% endcomment %}
+                    <div class="card-body">
+                    
+                     <span> <p class="card-title text-bold"><span><h5>location:  </h5></span>{{post.locations }} | {{Post.country }}</span>
+                      <div>
+                       <h5 class="text-center color-gold"> Description</h5>
+                      <p class="card-text">{{post.job_description }}</p>
+                      </div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <div>
+                        <li class="list-group-item">
+                        <span>Salary : </span><span>{{post.salary}} </span>
+                        </li>
+                      </div>
+                      
+                      <div>
+                        <li class="list-group-item">
+                        <span> <h5> Requirement</h5> </span><span>{{post.requirements}}</span>
+                        </li>
+                      </div>
+                      
+                    </ul>
+                    <div class="card-body">
+                      <a href="{{post.application_link}}" class="card-link">Apply here</a>
+                      {% comment %} <a href="#" class="card-link">Another link</a> {% endcomment %}
+                    </div>
+                  </div>
+                 </div>
+           
+            <div>
+            {{post.more_detail|safe}}
              </div
 
             <h3 class="h4 mb-4">Share this post</h3>
             <ul class="list-inline mb-5">
-              <li class="list-inline-item mr-1 mb-3"><a class="social-link-share facebook" href="#"><i class="fab fa-facebook-f mr-2"></i>Share</a></li>
+             <li class="list-inline-item mr-1 mb-3"><iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fpresictravels.herokuapp.com%2F&layout=button_count&size=small&width=77&height=20&appId" width="77" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></li>
+
+              <li class="list-inline-item mr-1 mb-3"><a class="social-link-share facebook" href="https://www.facebook.com/dialog/share?app_id=145634995501895&display=popup&href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer"><i class="fab fa-facebook-f mr-2"></i>Share</a></li>
               <li class="list-inline-item mr-1 mb-3"><a class="social-link-share twitter" href="#"><i class="fab fa-twitter mr-2"></i>Tweet</a></li>
               <li class="list-inline-item mr-1 mb-3"><a class="social-link-share instagram" href="#"><i class="fab fa-instagram mr-2"></i>Share</a></li>
             </ul>
@@ -98,7 +137,6 @@
               {% endfor %}
             </ul>
           </div>
-
           <div class="col-lg-4">
             <!-- About me widget -->
             <div class="mb-5 text-center"><img class="mb-3 rounded-circle img-thumbnail shadow-sm" src="img/author.jpg" alt="" width="110">
@@ -112,7 +150,7 @@
               </ul>
             </div>
             <!-- Categories widget -->
-            <div class="mb-5 text-center"><a class="category reset-anchor bg-cover bg-center mb-2" href="#" style="background: url({% static 'travelsite/img/category-1.jpg' %})">
+             <div class="mb-5 text-center"><a class="category reset-anchor bg-cover bg-center mb-2" href="#" style="background: url({% static 'travelsite/img/category-1.jpg' %})">
                 <p class="category-title text-uppercase small">Lifestyle</p></a><a class="category reset-anchor bg-cover bg-center mb-2" href="#" style="background: url({% static 'travelsite/img/category-1.jpg' %})">
                 <p class="category-title text-uppercase small">Travel</p></a><a class="category reset-anchor bg-cover bg-center" href="#" style="background: url({% static 'travelsite/img/category-3.jpg' %})">
                 <p class="category-title text-uppercase small">Jobs</p></a></div>
@@ -138,9 +176,9 @@
               <ul class="list-unstyled">
                 <li class="media mb-1"><a href="post.html"><img src="{{post.image.url}}" alt="" width="80"></a>
                   <div class="media-body ml-3">
-                    <p class="small text-primary text-uppercase mb-0">{{post.post_date}}</p>
-                    <h6 class="mb-1"><a class="reset-anchor" href="post.html">{{post.title}}</a></h6>
-                    <p class="small text-muted">{{post.detail}}</p>
+                    <p class="small text-primary text-uppercase mb-0">ps</p>
+                    <h6 class="mb-1"><a class="reset-anchor" href="post.html">post title</a></h6>
+                    <p class="small text-muted">post detail</p>
                   </div>
                 </li>
                

@@ -5,6 +5,7 @@ from django.db import models
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.db.models.deletion import CASCADE
+from django.db.models.fields import TextField
 from django.urls import reverse
 
 # for tynymce
@@ -12,10 +13,7 @@ from django.urls import reverse
 # from tinymce import HTMLField
 from ckeditor.fields import RichTextField
 
-
-
-
-# User = get_user_model()
+User = get_user_model()
 
 # class Comment(models.Model):
 #     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -33,9 +31,9 @@ from ckeditor.fields import RichTextField
 
 
   # to handdle the view count we a postview class
-# class PostView(models.Model):
+# class JobPostView(models.Model):
 #     user = models.ForeignKey(User, on_delete=CASCADE)
-#     post = models.ForeignKey('Blog', on_delete=CASCADE)
+#     post = models.ForeignKey('JobPost', on_delete=CASCADE)
 
 #     def __str__(self):
 #         return self.user.username
@@ -45,12 +43,12 @@ from ckeditor.fields import RichTextField
 # with the comment count
 
 
-# class Author(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     profile_pic = models.ImageField(upload_to='media', default='img/avata/avataars.png')
+class JobAdmin(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_pic = models.ImageField(upload_to='media', default='img/avata/avataars.png')
 
-#     def __str__(self):
-#         return self.user.username
+    def __str__(self):
+        return self.user.username
 
 class JobCategory(models.Model):
     title = models.CharField(max_length=50)
@@ -60,35 +58,45 @@ class JobCategory(models.Model):
 
 
 class JobPost(models.Model):
-    title = models.CharField(max_length=200)
-    detail = models.TextField()
+    application_link = models.CharField(max_length=300, blank=True, null=True)
+
+    company_name = models.CharField(max_length=300, default=None)
+    job_title = models.CharField(max_length=200, default=None)
+    job_description = models.TextField()
+    salary = models.IntegerField(default=0)
+    locations = models.CharField(max_length=500, default=None)
+    country = models.CharField(max_length=300, blank=True, null=True)
     counter = models.IntegerField(default=0)
+    requirements = models.TextField(default=None)
     # comment_count = models.IntegerField(default=0)
     # view_count = models.IntegerField(default=0)
     post_date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField()
+    
     featuredjobs = models.BooleanField(default=False)
     category = models.ManyToManyField(JobCategory)
-    # author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    job_admin_name = models.ForeignKey(JobAdmin, blank=True, null=True, on_delete=models.CASCADE)
     # for the tinymce
     # content = HTMLField('Content')
     more_detail = RichTextField(blank=True, null=True)
 
     
-
     def __str__(self):
-        return self.title
+        return self.job_title
+
+    def shotend_desc(self):
+        return self.job_description[:100] + '...'
 
 
-#     def get_absolute_url(self):
-#         return reverse('post_detail', kwargs={"id":self.id})
+
+    def get_absolute_url(self):
+        return reverse('job-detail', kwargs={"id":self.id})
     
     
-#     def get_update_url(self):
-#         return reverse('post-update', kwargs={"id":self.id})
+    def get_update_url(self):
+        return reverse('job-update', kwargs={"id":self.id})
 
-#     def get_delete_url(self):
-#         return reverse('post-delete', kwargs={"id":self.id})
+    def get_delete_url(self):
+        return reverse('job-delete', kwargs={"id":self.id})
 
 # # return reverse('people.views.details', args=[str(self.id)])
 # # kwargs={"id": self.id}

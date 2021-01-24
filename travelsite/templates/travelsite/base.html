@@ -6,10 +6,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Travel | Bootstrap blog</title>
+    <title>Presic Travels And Recruitment Services</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
+    {% comment %} facebook meta tag {% endcomment %}
+    <meta property="og:url"           content="https://www.your-domain.com/your-page.html" /> <!--web site url to share -->
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Your Website Title" />
+    <meta property="og:description"   content="Your description" />
+    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
+     
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="{% static 'travelsite/vendor/bootstrap/css/bootstrap.min.css' %}">
     <!-- Owl Carousel -->
@@ -40,7 +47,29 @@
         
       {% load crispy_forms_tags %}
 
+
+      {% comment %} for facebook share {% endcomment %}
+      <meta property="og:image" content="http://ia.media-imdb.com/rock.jpg"/>
+      <meta property="og:image:secure_url" content="https://secure.example.com/ogp.jpg" />
+
   </head>
+
+   <!--JavaScript code -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- share button -->
+   <div class="fb-share-button" 
+    data-href="https://www.your-domain.com/your-page.html" 
+    data-layout="button_count">
+  </div>
+
 
   <body>
     <!-- Header-->
@@ -92,7 +121,7 @@
                 <!-- Link--><a class="nav-link" href="{% url 'blog' %}">Blog</a>
               </li>
               <li class="nav-item px-1">
-                <!-- Link--><a class="nav-link" href="{% url 'job' %}">Jobs</a>
+                 <!-- Link--><a class="nav-link" href="{% url 'job' %}">Jobs</a> 
               </li>
               <li class="nav-item px-1">
                 <!-- Link--><a class="nav-link" href="{% url 'blog' %}">Travel guide</a>

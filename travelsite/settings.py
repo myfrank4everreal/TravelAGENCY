@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'travelblog',
     'jobs',
     'marketing',
-    # 'tinymce',
+    'tinymce',
     'ckeditor',
     'crispy_forms',
     'django.contrib.admin',

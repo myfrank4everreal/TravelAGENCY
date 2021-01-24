@@ -6,8 +6,6 @@
 
 {% block content %}
 
-    
-
 
 <section class="hero bg-center bg-cover" style="background: url({% static 'travelsite/img/hero-banner.jpg' %})">
       <div class="dark-overlay py-5">
@@ -42,7 +40,7 @@
                   <a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">cat title</a>
                 
 
-                <p class="text-small mb-1">{{post.detail}}</p><a class="btn btn-link" href="{{ post.get_absolute_url }}">Continue reading</a>
+                <p class="text-small mb-1">{{post.shotend_desc}}</p><a class="btn btn-link" href="{{ post.get_absolute_url }}">Continue reading</a>
               </div>
                 {% endfor %}
 
@@ -63,24 +61,17 @@
           <!-- Sidebar -->
           <div class="col-lg-4">
             <!-- About me widget -->
-            {% comment %} <div class="mb-5 text-center"><img class="mb-3 rounded-circle img-thumbnail shadow-sm" src="{% static 'travelsite/img/author.jpg' %}" alt="" width="110"> {% endcomment %}
-              <h3 class="h4">Social Contact</h3>
-              <p class="text-small text-muted px-sm-4">  </p><img class="d-block mx-auto mb-3" src="img/signature.png" alt="" width="60">
-              <ul class="list-inline text-small mb-0">
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-instagram"></i></a></li>
-                {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li>
+            <div class="mb-5 text-center"><img class="mb-3 rounded-circle img-thumbnail shadow-sm" src="" alt="" width="110">
+              <h3 class="h4">Social connect</h3>
                 <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-youtube"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li> {% endcomment %}
+                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li>
               </ul>
             </div>
             <!-- Categories widget -->
             <div class="mb-5 text-center"><a class="category reset-anchor bg-cover bg-center mb-2" href="#" style="background: url({% static 'travelsite/img/category-1.jpg' %})">
                 <p class="category-title text-uppercase small">Lifestyle</p></a><a class="category reset-anchor bg-cover bg-center mb-2" href="#" style="background: url({% static 'travelsite/img/category-1.jpg' %})">
-                <p class="category-title text-uppercase small">Travel</p></a><a class="category reset-anchor bg-cover bg-center" href="#" style="background: url({% static 'travelsite/img/category-2.jpg' %})">
-                <p class="category-title text-uppercase small">Jobs</p></a>><a class="category reset-anchor bg-cover bg-center" href="#" style="background: url({% static 'travelsite/img/category-.jpg' %})">
-            </div>
+                <p class="category-title text-uppercase small">Travel</p></a><a class="category reset-anchor bg-cover bg-center" href="#" style="background: url({% static 'travelsite/img/category-3.jpg' %})">
+                <p class="category-title text-uppercase small">Jobs</p></a></div>
             <!-- Newsletter widget -->
             <div class="px-4 py-5 bg-light mb-5 text-center">
               <h3 class="h5"><i class="far fa-envelope mr-2"></i>Join the family</h3>

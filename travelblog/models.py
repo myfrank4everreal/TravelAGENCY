@@ -74,6 +74,9 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def shotend_desc(self):
+        return self.detail[:200] + '...'
 
 
     def get_absolute_url(self):

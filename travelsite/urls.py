@@ -19,6 +19,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from travelblog.views import blogView, blogDetail, search, post_delete, post_create, post_update
+from jobs.views import jobView, jobDetail
+
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,8 +32,12 @@ urlpatterns = [
     path('search/', search, name= 'search' ),
     
     # for the job app
-    path('presic-jobs/', include('jobs.urls')),
+    # path('presic-jobs/', include('jobs.urls')),
+    path('presic-jobs/', jobView, name='job'),
+    path('presic-jobs/<id>/', jobDetail, name='job-detail'),
 
+
+    # for the  blog 
     # path('blog/', include('travelblog.urls')),
     path('blog/', blogView, name='blog'),
     path('blog/<id>/', blogDetail, name='post_detail'),

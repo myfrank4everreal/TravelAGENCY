@@ -6,14 +6,11 @@
 
 {% block content %}
 
-    
-
-
-<section class="hero bg-center bg-cover" style="background: url({% static 'travelsite/img/myhero-banner2.png' %})">
+<section class="hero bg-center bg-cover" style="background: url({% static 'travelsite/img/hero-banner.jpg' %})">
       <div class="dark-overlay py-5">
         <div class="overlay-content">
           <div class="container py-5 text-white text-center">
-            <h1>jobs</h1>
+            <h1>JOBS</h1>
             <p></p>
           </div>
         </div>
@@ -24,25 +21,26 @@
       <div class="container pt-5">
         <div class="row mb-5">
           <div class="col-lg-8">
-            <div class="row text-center">
+            <div class="row ">
+
                 {% for post in queryset %}
 
               <div class="col-lg-6 mb-5"><a href="{{ post.get_absolute_url }}"><img class="img-fluid mb-4" src="{{post.image.url}}" alt=""/></a>
                 <ul class="list-inline small text-uppercase mb-0">
                   <li class="list-inline-item mr-0 text-gray align-middle">By </li>
-                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.author}}</a></li>
+                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.company_name}}</a></li>
                   
                   <li class="list-inline-item text-gray align-middle mr-0">|</li>
                   <li class="list-inline-item text-gray align-middle">{{post.post_date|timesince}} ago</li>
                 </ul>
                 
-                <h3 class="h4 mt-2"> <a class="reset-anchor" href="{{ post.get_absolute_url }}">{{post.title}}</a></h3>
+                <h3 class="h4 mt-2"> <a class="reset-anchor" href="{{ post.get_absolute_url }}">{{post.job_title}}</a></h3>
                   
                 
                   <a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">cat title</a>
                 
 
-                <p class="text-small mb-1">{{post.detail}}</p><a class="btn btn-link" href="{{ post.get_absolute_url }}">Continue reading</a>
+                <p class="text-small text-left mb-1">{{post.shotend_desc}}</p><a class="btn btn-link text-left" href="{{ post.get_absolute_url }}">View Job</a>
               </div>
                 {% endfor %}
 
@@ -63,24 +61,17 @@
           <!-- Sidebar -->
           <div class="col-lg-4">
             <!-- About me widget -->
-            {% comment %} <div class="mb-5 text-center"><img class="mb-3 rounded-circle img-thumbnail shadow-sm" src="{% static 'travelsite/img/author.jpg' %}" alt="" width="110"> {% endcomment %}
-              <h3 class="h4">Social Contact</h3>
-              <p class="text-small text-muted px-sm-4">  </p><img class="d-block mx-auto mb-3" src="img/signature.png" alt="" width="60">
-              <ul class="list-inline text-small mb-0">
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-instagram"></i></a></li>
-                {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li>
+            <div class="mb-5 text-center"><img class="mb-3 rounded-circle img-thumbnail shadow-sm" src="" alt="" width="110">
+              <h3 class="h4">Social connect</h3>
                 <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-youtube"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li> {% endcomment %}
+                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li>
               </ul>
             </div>
             <!-- Categories widget -->
             <div class="mb-5 text-center"><a class="category reset-anchor bg-cover bg-center mb-2" href="#" style="background: url({% static 'travelsite/img/category-1.jpg' %})">
                 <p class="category-title text-uppercase small">Lifestyle</p></a><a class="category reset-anchor bg-cover bg-center mb-2" href="#" style="background: url({% static 'travelsite/img/category-1.jpg' %})">
-                <p class="category-title text-uppercase small">Travel</p></a><a class="category reset-anchor bg-cover bg-center" href="#" style="background: url({% static 'travelsite/img/category-2.jpg' %})">
-                <p class="category-title text-uppercase small">Jobs</p></a>><a class="category reset-anchor bg-cover bg-center" href="#" style="background: url({% static 'travelsite/img/category-.jpg' %})">
-            </div>
+                <p class="category-title text-uppercase small">Travel</p></a><a class="category reset-anchor bg-cover bg-center" href="#" style="background: url({% static 'travelsite/img/category-3.jpg' %})">
+                <p class="category-title text-uppercase small">Jobs</p></a></div>
             <!-- Newsletter widget -->
             <div class="px-4 py-5 bg-light mb-5 text-center">
               <h3 class="h5"><i class="far fa-envelope mr-2"></i>Join the family</h3>
@@ -104,8 +95,8 @@
                 <li class="media mb-1"><a href="post.html"><img src="{{post.image.url}}" alt="" width="80"></a>
                   <div class="media-body ml-3">
                     <p class="small text-primary  mb-0">{{post.post_date|timesince}} ago</p>
-                    <h6 class="mb-1"><a class="reset-anchor" href="post.html">{{post.title}}</a></h6>
-                    <p class="small text-muted">{{post.detail}}</p>
+                    <h6 class="mb-1"><a class="reset-anchor" href="post.html">{{post.job_title}}</a></h6>
+                    <p class="small text-muted">{{post.job_detail}}</p>
                   </div>
                 </li>
                 {% endfor %}
