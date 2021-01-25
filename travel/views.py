@@ -18,6 +18,9 @@ def home(request):
 
     return render(request, 'travel/home.html', context )
 
+def aboutUs(request):
+    
+    return render(request, 'travel/aboutus.html')
 
 def travelInfo(request):
     return render(request, 'travel/travelinfo.html' )

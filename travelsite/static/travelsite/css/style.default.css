@@ -1926,13 +1926,13 @@ STYLE SWITCHER FOR DEMO
 
 .btn-dark {
   color: #fff;
-  background-color: #000;
+  background-color: #1e7e34;;
   border-color: #000;
 }
 
 .btn-dark:hover {
   color: #fff;
-  background-color: black;
+  background-color: #ffc107;
   border-color: black;
 }
 

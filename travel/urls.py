@@ -7,5 +7,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('travel-guide', views.travelInfo, name='travel'),
     path('visa-processing', views.visaInfo, name='visa'),
+    path('About-us', views.aboutUs, name='aboutus'),
     # path('find-a-job', views.jobInfo, name='job'),
 ]

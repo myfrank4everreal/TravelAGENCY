@@ -11,11 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     {% comment %} facebook meta tag {% endcomment %}
-    <meta property="og:url"           content="https://www.your-domain.com/your-page.html" /> <!--web site url to share -->
+    <meta property="og:url"           content="https://presictravels.herokuapp.com/"> <!--web site url to share -->
     <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Your Website Title" />
-    <meta property="og:description"   content="Your description" />
-    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
+    <meta property="og:title"         content="Presic travels tours & recruitment Services">
+    <meta property="og:description"   content=" We take care of all your travel needs ">
+    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg">
      
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="{% static 'travelsite/vendor/bootstrap/css/bootstrap.min.css' %}">
@@ -48,30 +48,31 @@
       {% load crispy_forms_tags %}
 
 
-      {% comment %} for facebook share {% endcomment %}
-      <meta property="og:image" content="http://ia.media-imdb.com/rock.jpg"/>
-      <meta property="og:image:secure_url" content="https://secure.example.com/ogp.jpg" />
-
+     
+      
   </head>
 
-   <!--JavaScript code -->
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-  fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
 
   <!-- share button -->
-   <div class="fb-share-button" 
-    data-href="https://www.your-domain.com/your-page.html" 
+ {% comment %} <div class="fb-share-button" 
+    data-href="https://presictravels.herokuapp.com/blog" 
     data-layout="button_count">
-  </div>
+  </div> {% endcomment %}
 
 
   <body>
+
+         <!--JavaScript code -->
+          <div id="fb-root"></div>
+          <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+              fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));
+          </script>
+
     <!-- Header-->
     <header class="header">
       <!-- Top bar -->
@@ -80,7 +81,7 @@
           <div class="row align-items-center">
             <div class="col-lg-4">
               <ul class="list-inline mb-0 text-small">
-                <li class="list-inline-item"><a class="reset-anchor" href="#">About us</a></li>
+                <li class="list-inline-item"><a class="reset-anchor" href="{% url 'aboutus' %}">About us</a></li>
                 <li class="list-inline-item">|</li>
                 <li class="list-inline-item"><a class="reset-anchor" href="#">Sitemap</a></li>
               </ul>
@@ -89,10 +90,11 @@
               <ul class="list-inline mb-0 small">
                 <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-facebook-f"></i></a></li>
                 <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-instagram"></i></a></li>
+                {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-instagram"></i></a></li> {% endcomment %}
                 <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-youtube"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-email"></i>presictravels@gmail.com</a></li>
+                {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-youtube"></i></a></li> {% endcomment %}
+                {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li> {% endcomment %}
               </ul>
             </div>
             <div class="col-lg-4 d-none d-lg-block text-right">
@@ -124,9 +126,9 @@
                  <!-- Link--><a class="nav-link" href="{% url 'job' %}">Jobs</a> 
               </li>
               <li class="nav-item px-1">
-                <!-- Link--><a class="nav-link" href="{% url 'blog' %}">Travel guide</a>
+                <!-- Link--><a class="nav-link" href="{% url 'travel' %}">Travel guide</a>
               </li>
-              <li class="nav-item px-1"><a class="nav-link" href="#">About</a></li>
+              <li class="nav-item px-1"><a class="nav-link" href="{% url 'aboutus' %}">About</a></li>
                
                {% comment %} {% if request.user.is_staff %}
               <li class="nav-item px-1">

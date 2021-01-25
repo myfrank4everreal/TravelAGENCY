@@ -151,3 +151,7 @@ def post_update(request, id):
 
 def post_delete(request, id):
     pass
+
+
+def dashboard(request):
+    author = get_author(request.user)

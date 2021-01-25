@@ -64,11 +64,13 @@
 
             <h3 class="h4 mb-4">Share this post</h3>
             <ul class="list-inline mb-5">
-             <li class="list-inline-item mr-1 mb-3"><iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fpresictravels.herokuapp.com%2F&layout=button_count&size=small&width=77&height=20&appId" width="77" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></li>
+             <li class="list-inline-item mr-1 mb-3"><iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fpresictravels.herokuapp.com/presic-jobs/{{post.id}}%2F&layout=button_count&size=small&width=77&height=20&appId" width="77" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></li>
 
-              <li class="list-inline-item mr-1 mb-3"><a class="social-link-share facebook" href="https://www.facebook.com/dialog/share?app_id=145634995501895&display=popup&href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer"><i class="fab fa-facebook-f mr-2"></i>Share</a></li>
-              <li class="list-inline-item mr-1 mb-3"><a class="social-link-share twitter" href="#"><i class="fab fa-twitter mr-2"></i>Tweet</a></li>
+              {% comment %} <li class="list-inline-item mr-1 mb-3"><a class="social-link-share facebook" href="https://www.facebook.com/dialog/share?app_id=145634995501895&display=popup&href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer"><i class="fab fa-facebook-f mr-2"></i>Share</a></li> {% endcomment %}
+              <li class="list-inline-item mr-1 mb-3"><a class="social-link-share facebook" href=""><i class="fab fa-facebook-f mr-2"></i>Share</a></li>
+              <li class="list-inline-item mr-1 mb-3"><a class="social-link-share twitter" href="#"><i class="fab fa-twitter mr-2"></i>Share</a></li>
               <li class="list-inline-item mr-1 mb-3"><a class="social-link-share instagram" href="#"><i class="fab fa-instagram mr-2"></i>Share</a></li>
+              <li class="list-inline-item mr-1 mb-3"><a class="social-link-share whatapp" href="#"><i class="fab fa-whatapp mr-2"></i>Share</a></li>
             </ul>
             {% if request.user.is_authenticated %}
             <h3 class="h4 mb-4">Leave a comment</h3>
