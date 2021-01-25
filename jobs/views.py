@@ -1,10 +1,15 @@
 from django.http import request
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import JobPost
-
+from .models import JobAdmin, JobPost
+from .forms import JobListForm
 from django.db.models.query import QuerySet
 from django.db.models import Q
+from django.urls.base import reverse
+from django.core.checks import messages
+
+
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db import IntegrityError
 
 
 
@@ -76,3 +81,41 @@ def jobDetail(request, id):
     }
    
     return render(request, 'jobs/jobdetail.html', context)
+
+
+def listJob(request):
+    err_msg = ''
+    message = ""
+    if request.user.is_authenticated:
+        try:
+            form = JobListForm(request.POST or None, request.FILES or None)
+            jobadmin = JobAdmin(request.user)
+            
+            if request.method == "POST":
+                if form.is_valid():
+                    form.instance.author = jobadmin
+                    form.save()
+
+                    return redirect(reverse("job-detail", kwargs={
+                        'id':form.instance.id
+                    }))
+        except IntegrityError as e :
+            e = "please contact admin  to gain access to post your blog"
+            err_msg = e
+            print(err_msg)
+            return redirect('job')
+    
+    message = err_msg
+    form = JobListForm()
+    context = {
+        
+        'message':message,
+        'form':form,
+        }
+
+    return render(request, 'jobs/list_job.html', context)
+    
+
+def update_joblist(request):
+    pass
+    # return render(request, 'jobs/updatejoblist.html')

@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from travelblog.views import blogView, blogDetail, search, post_delete, post_create, post_update
-from jobs.views import jobView, jobDetail
+from jobs.views import jobView, jobDetail, listJob
 
 
 
@@ -34,7 +34,10 @@ urlpatterns = [
     # for the job app
     # path('presic-jobs/', include('jobs.urls')),
     path('presic-jobs/', jobView, name='job'),
-    path('presic-jobs/<id>/', jobDetail, name='job-detail'),
+    path('job/<id>/', jobDetail, name='job-detail'),
+    path('presic-jobs/job-list-create/', listJob, name='create-job-list'),
+    path('job-list-update/', jobDetail, name='job-detail'),
+    # path('job-list-delete/<id>/', jobDetail, name='job-detail'),
 
 
     # for the  blog 

@@ -92,15 +92,19 @@
                 <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-twitter"></i></a></li>
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-instagram"></i></a></li> {% endcomment %}
                 <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-email"></i>presictravels@gmail.com</a></li>
+                <li class="list-inline-item"><a class="reset-anchor" href=""><i class="fab fa-email"></i>presictravels@gmail.com</a></li>
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-youtube"></i></a></li> {% endcomment %}
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li> {% endcomment %}
               </ul>
             </div>
-            <div class="col-lg-4 d-none d-lg-block text-right">
-              <div class="dropdown text-small"><a class="reset-anchor dropdown-toggle" id="destinations" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe-americas mr-2"></i>Destinations</a>
+            <div class="col-lg-4  d-lg-block text-right">
+              <ul class="list-inline mb-0 small">
+              <li class="list-inline-item"><a class="reset-anchor" href="{% url 'dashboard' %}"><i class="fab computer"></i>DASHBOARD</a></li>
+
+              <div class=" d-none list-inline-item dropdown text-small"><a class="reset-anchor dropdown-toggle" id="destinations" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe-americas mr-2"></i>Destinations</a>
                 <div class="dropdown-menu" aria-labelledby="destinations"><a class="dropdown-item text-small" href="#">France</a><a class="dropdown-item text-small" href="#">Germany</a><a class="dropdown-item text-small" href="#">Spain</a><a class="dropdown-item text-small" href="#">Egypt</a><a class="dropdown-item text-small" href="#">Thailand</a><a class="dropdown-item text-small" href="#">Indonesia</a><a class="dropdown-item text-small" href="#">Maldives</a></div>
               </div>
+              </ul>
             </div>
           </div>
         </div>

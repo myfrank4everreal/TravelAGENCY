@@ -11,3 +11,17 @@ btn-dark {
     background-color: #1e7e34;
     border-color: #000;
 }
+
+
+
+.custom-card{
+    background:  #fff;
+     display: flex;
+    flex-direction: column;
+    padding:  16px;
+     box-shadow:  0 4px 8px   rgba(0, 0, 0.3);
+     position:   flexed;
+      top:   50%;
+     transform:  translateY(-50%);
+
+}

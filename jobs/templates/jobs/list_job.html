@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+{{ form.media }}
+
+<div class='container justify-content-center mb-5 mt-5'>
+<div class='mt-5 mb-5 text-center'  >
+<h3> POST YOUR JOB</h3>
+</br>
+<hr>
+</div>
+
+
+<form method = "POST" action="." enctype="multipart/form-data">
+  {% csrf_token %}
+   {% comment %} {{form.as_p|as_crispy_field}} {% endcomment %}
+   {{form|crispy}}
+
+
+  <button class="btn btn-primary  " style= 'width:100%; margin-top:50px;'  type='submit'>Post</button>
+  
+  {% if message %}
+      <div class="alert alert-danger" role="alert">
+        {{message}}
+      </div>
+    {% else %}
+
+  {% endif %}
+
+    {% comment %} <div class="alert alert-success" role="alert">
+        Thanks for sharing
+      </div>
+      
+    {% endif %} {% endcomment %}
+
+     
+  </form>
+</div>
+
+
+{% endblock %}

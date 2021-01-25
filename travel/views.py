@@ -22,6 +22,10 @@ def aboutUs(request):
     
     return render(request, 'travel/aboutus.html')
 
+
+def dashBoard(request):
+    return render(request, 'travel/dashboard.html')
+
 def travelInfo(request):
     return render(request, 'travel/travelinfo.html' )
 
