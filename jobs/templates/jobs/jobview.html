@@ -24,8 +24,9 @@
             <div class="row ">
 
                 {% for post in queryset %}
-
+               
               <div class="col-lg-6 mb-5"><a href="{{ post.get_absolute_url }}"><img class="img-fluid mb-4" src="{{post.image.url}}" alt=""/></a>
+              <div class=".custom-card "
                 <ul class="list-inline small text-uppercase mb-0">
                   <li class="list-inline-item mr-0 text-gray align-middle">By </li>
                   <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.company_name}}</a></li>
@@ -41,6 +42,7 @@
                 
 
                 <p class="text-small text-left mb-1">{{post.shotend_desc}}</p><a class="btn btn-link text-left" href="{{ post.get_absolute_url }}">View Job</a>
+              </div>
               </div>
                 {% endfor %}
 

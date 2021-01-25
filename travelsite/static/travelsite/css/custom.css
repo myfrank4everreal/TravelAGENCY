@@ -16,12 +16,12 @@ btn-dark {
 
 .custom-card{
     background:  #fff;
-     display: flex;
+    display: flex;
     flex-direction: column;
     padding:  16px;
-     box-shadow:  0 4px 8px   rgba(0, 0, 0.3);
-     position:   flexed;
-      top:   50%;
-     transform:  translateY(-50%);
+    box-shadow:  0 4px 8px   rgba(0, 0, 0.3);
+    position:   flexed;
+    top:   50%;
+    transform:  translateY(-50%);
 
 }
