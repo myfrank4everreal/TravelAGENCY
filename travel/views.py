@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from jobs.models import JobAdmin, JobPost
+from django.contrib.auth import get_user_model
+from django.shortcuts import get_object_or_404, redirect, render
 from marketing.models import Signup
 from travelblog.models import Blog
+from jobs.models import JobPost
+
 # Create your views here.
 
 
@@ -23,8 +27,25 @@ def aboutUs(request):
     return render(request, 'travel/aboutus.html')
 
 
-def dashBoard(request):
-    return render(request, 'travel/dashboard.html')
+def dashBoard(response):
+
+    # all_user_post = JobPost.objects.filter(related_name="job_admin_name")
+    # # all_user_post = JobAdmin(response.user)
+
+
+    # if all_user_post in response.user.job_admin_name.all():
+    #     print(all_user_post)
+        
+    
+    # else:
+    #     print('no users found by my findin frank')    
+
+    
+            
+    
+        # return render(response, 'travel/dashboard.html', {'all_user_post':all_user_post})
+    return render(response, 'travel/dashboard.html')
+
 
 def travelInfo(request):
     return render(request, 'travel/travelinfo.html' )
@@ -32,4 +53,9 @@ def travelInfo(request):
 
 def visaInfo(request):
     return render(request, 'travel/visainfo.html' )
+
+
+
+
+
 

@@ -60,11 +60,19 @@
            
             <div>
             {{post.more_detail|safe}}
-             </div
+            <div class="mb-5 text-center"><img class="mb-3 rounded-circle img-thumbnail shadow-sm" src="" alt="" width="110">
+              <h3 class="h4"></h3>
+                {% comment %} <li class="list-inline-item"><a class="reset-anchor" href=""><button class=" btn btn-primary fab fa-new">Create New</button></a></li>
+                <li class="list-inline-item"><a class="reset-anchor" href=""><button  class=" btn btn-primary fab fa-create">Edit Post</button></a></li>
+                <li class="list-inline-item"><a class="reset-anchor" href="#"><button class=" btn btn-primary fab fa-delete">Delete Post</button></a></li> {% endcomment %}
+                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li>
+              </ul>
+            </div>                
+             </div>
 
             <h3 class="h4 mb-4">Share this post</h3>
             <ul class="list-inline mb-5">
-             <li class="list-inline-item mr-1 mb-3"><iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fpresictravels.herokuapp.com/presic-jobs/{{post.id}}%2F&layout=button_count&size=small&width=77&height=20&appId" width="77" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></li>
+             {% comment %} <li class="list-inline-item mr-1 mb-3"><iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fpresictravels.herokuapp.com/presic-jobs/{{post.id}}%2F&layout=button_count&size=small&width=77&height=20&appId" width="77" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></li> {% endcomment %}
 
               {% comment %} <li class="list-inline-item mr-1 mb-3"><a class="social-link-share facebook" href="https://www.facebook.com/dialog/share?app_id=145634995501895&display=popup&href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer"><i class="fab fa-facebook-f mr-2"></i>Share</a></li> {% endcomment %}
               <li class="list-inline-item mr-1 mb-3"><a class="social-link-share facebook" href=""><i class="fab fa-facebook-f mr-2"></i>Share</a></li>

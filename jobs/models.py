@@ -44,7 +44,8 @@ User = get_user_model()
 
 
 class JobAdmin(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # i change the database type from one_to_one field to ForeignKey
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="job_admin_name", null=True)
     profile_pic = models.ImageField(upload_to='media', default='img/avata/avataars.png')
 
     def __str__(self):

@@ -81,7 +81,7 @@
           <div class="row align-items-center">
             <div class="col-lg-4">
               <ul class="list-inline mb-0 text-small">
-                <li class="list-inline-item"><a class="reset-anchor" href="{% url 'aboutus' %}">About us</a></li>
+                <li class="list-inline-item"><a class="reset-anchor" href="{% url 'travel:aboutus' %}">About us</a></li>
                 <li class="list-inline-item">|</li>
                 <li class="list-inline-item"><a class="reset-anchor" href="#">Sitemap</a></li>
               </ul>
@@ -99,7 +99,7 @@
             </div>
             <div class="col-lg-4  d-lg-block text-right">
               <ul class="list-inline mb-0 small">
-              <li class="list-inline-item"><a class="reset-anchor" href="{% url 'dashboard' %}"><i class="fab computer"></i>DASHBOARD</a></li>
+              <li class="list-inline-item"><a class="reset-anchor" href="{% url 'travel:dashboard' %}"><i class="fab computer"></i>DASHBOARD</a></li>
 
               <div class=" d-none list-inline-item dropdown text-small"><a class="reset-anchor dropdown-toggle" id="destinations" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe-americas mr-2"></i>Destinations</a>
                 <div class="dropdown-menu" aria-labelledby="destinations"><a class="dropdown-item text-small" href="#">France</a><a class="dropdown-item text-small" href="#">Germany</a><a class="dropdown-item text-small" href="#">Spain</a><a class="dropdown-item text-small" href="#">Egypt</a><a class="dropdown-item text-small" href="#">Thailand</a><a class="dropdown-item text-small" href="#">Indonesia</a><a class="dropdown-item text-small" href="#">Maldives</a></div>
@@ -121,7 +121,7 @@
           <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item px-1">
-                <!-- Link--><a class="nav-link active" href="{% url 'home' %}">Home</a>
+                <!-- Link--><a class="nav-link active" href="{% url 'travel:home' %}">Home</a>
               </li>
               <li class="nav-item px-1">
                 <!-- Link--><a class="nav-link" href="{% url 'blog' %}">Blog</a>
@@ -130,9 +130,9 @@
                  <!-- Link--><a class="nav-link" href="{% url 'job' %}">Jobs</a> 
               </li>
               <li class="nav-item px-1">
-                <!-- Link--><a class="nav-link" href="{% url 'travel' %}">Travel guide</a>
+                <!-- Link--><a class="nav-link" href="{% url 'travel:travel' %}">Travel guide</a>
               </li>
-              <li class="nav-item px-1"><a class="nav-link" href="{% url 'aboutus' %}">About</a></li>
+              <li class="nav-item px-1"><a class="nav-link" href="{% url 'travel:aboutus' %}">About</a></li>
                
                {% comment %} {% if request.user.is_staff %}
               <li class="nav-item px-1">

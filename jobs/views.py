@@ -84,6 +84,7 @@ def jobDetail(request, id):
 
 
 def listJob(request):
+    title = "CREATE"
     err_msg = ''
     message = ""
     if request.user.is_authenticated:
@@ -93,7 +94,7 @@ def listJob(request):
             
             if request.method == "POST":
                 if form.is_valid():
-                    form.instance.author = jobadmin
+                    form.instance.jobadmin = jobadmin
                     form.save()
 
                     return redirect(reverse("job-detail", kwargs={
@@ -108,14 +109,56 @@ def listJob(request):
     message = err_msg
     form = JobListForm()
     context = {
-        
+        "title":title,
         'message':message,
         'form':form,
         }
 
     return render(request, 'jobs/list_job.html', context)
-    
+
+
+
+
+
+   # job post update
 
 def update_joblist(request):
-    pass
-    # return render(request, 'jobs/updatejoblist.html')
+    title = "UPDATE"
+    err_msg=''
+    message = ""
+    post = get_object_or_404(JobPost, id=id)
+
+    try:
+        form = JobListForm(
+            request.POST or 
+            None, request.FILES or None,
+            instance=post
+            
+        )
+        jobadmin = JobAdmin(request.user)
+        
+        if request.method == "POST":
+            if form.is_valid():
+                form.instance.jobadmin = jobadmin
+                form.save()
+
+                return redirect(reverse("job-detail", kwargs={
+                    'id':form.instance.id
+                }))
+    except IntegrityError as e :
+        e = "please contact admin  to gain access to post your blog"
+        err_msg = e
+        print(err_msg)
+        return redirect('job')
+    
+    message = err_msg
+    form = JobListForm()
+    context = {
+        "title":title,
+        
+        'message':message,
+        'form':form,
+        }
+
+    
+    return render(request, 'jobs/list_job.html', context)
