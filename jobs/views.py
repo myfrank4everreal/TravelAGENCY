@@ -11,6 +11,8 @@ from django.core.checks import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db import IntegrityError
 
+from django.contrib.auth.decorators import login_required, permission_required
+
 
 
 
@@ -81,7 +83,6 @@ def jobDetail(request, id):
     }
    
     return render(request, 'jobs/jobdetail.html', context)
-
 
 def listJob(request):
     title = "CREATE"

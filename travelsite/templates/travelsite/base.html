@@ -90,32 +90,59 @@
               <ul class="list-inline mb-0 small">
                 <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-facebook-f"></i></a></li>
                 <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-whatsapp"></i></a></li>
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-instagram"></i></a></li> {% endcomment %}
                 <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href=""><i class="fab fa-email"></i>presictravels@gmail.com</a></li>
+                <li class="list-inline-item"><a class="reset-anchor" href="mailto:presictravels@gmail.com"><i class="fab fa-email"></i>presictravels@gmail.com</a></li>
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-youtube"></i></a></li> {% endcomment %}
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li> {% endcomment %}
               </ul>
             </div>
-            <div class="col-lg-4  d-lg-block text-right">
-              <ul class="list-inline mb-0 small">
-              <li class="list-inline-item"><a class="reset-anchor" href="{% url 'travel:dashboard' %}"><i class="fab computer"></i>DASHBOARD</a></li>
 
-              <div class=" d-none list-inline-item dropdown text-small"><a class="reset-anchor dropdown-toggle" id="destinations" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe-americas mr-2"></i>Destinations</a>
-                <div class="dropdown-menu" aria-labelledby="destinations"><a class="dropdown-item text-small" href="#">France</a><a class="dropdown-item text-small" href="#">Germany</a><a class="dropdown-item text-small" href="#">Spain</a><a class="dropdown-item text-small" href="#">Egypt</a><a class="dropdown-item text-small" href="#">Thailand</a><a class="dropdown-item text-small" href="#">Indonesia</a><a class="dropdown-item text-small" href="#">Maldives</a></div>
-              </div>
-              </ul>
+            {% comment %} the user profile {% endcomment %}
+            
+      
+        {% comment %} ends here {% endcomment %}
+            <div class="col-lg-4  d-lg-block text-right">
+            {% comment %} this will be seen if youser is authenticated and authorized{% endcomment %}
+            {% if user.is_authenticated %}
+              <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="{% url 'travel:dashboard' %}">Dashboard</a>
+                        <a class="dropdown-item" href="#">profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
+                    </div>
+                </li>
+            </ul>
+          {% else %}
+          <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href=""></a>
+                        <a class="dropdown-item" href=""></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'account_login' %}">Login to post</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{%url 'account_signup'  %}">signup</a>
+
+                    </div>
+                </li>
+            </ul>
+            {% endif %}
             </div>
           </div>
         </div>
       </div>
       <!-- Navbar 1 -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-white py-4">
-        <div class="container text-center"><a class="navbar-brand mx-auto" href="/"><img class="mb-0" src="{% static 'travelsite/img/travel_logo8.png' %}" alt="" width="190">
-            <p class="text-large text-uppercase text-gray mb-0">Discover the world</p></a></div>
-      </nav>
+     
+
       <!-- Navbar 2 -->
-      <nav class="navbar navbar-expand-lg navbar-light border-gray py-2 bg-light">
+      
+ <nav class="navbar navbar-expand-lg navbar-light border-gray py-2 bg-light">
         <div class="container">
           <button class="navbar-toggler navbar-toggler-right mx-auto border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
@@ -147,6 +174,7 @@
           </div>
         </div>
       </nav>
+     
     </header>
     <!-- Destinations -->
 {% block content %}
@@ -158,27 +186,9 @@
 
     <!-- Travel essentials section -->
     <section class="py-5 bg-light">
-      <div class="container py-4">
-        <header class="text-center mb-5">
-          <h2>My travel essentials</h2>
-          <p>Get prepared </p>
-        </header>
-        <div class="row text-center">
-          <div class="col-lg-3 col-md-6"><a class="text-reset text-decoration-none" href="#"><img class="mb-4" src="{% static 'travelsite/img/bag.png' %}" alt="" height="150">
-              <h3 class="h5">Backpack</h3>
-              <p class="text-small text-muted">pack with style</p></a></div>
-          <div class="col-lg-3 col-md-6"><a class="text-reset text-decoration-none" href="#"><img class="mb-4" src="{% static 'travelsite/img/camera.png' %}" alt="" height="150">
-              <h3 class="h5">Camera</h3>
-              <p class="text-small text-muted"> Catch the glimpse of every amaizing view in your path great for documentation purposes</p></a></div>
-          <div class="col-lg-3 col-md-6"><a class="text-reset text-decoration-none" href="#"><img class="mb-4" src="{% static 'travelsite/img/glasses.png' %}" alt="" height="150">
-              <h3 class="h5">Sunglasses</h3>
-              <p class="text-small text-muted">It is essential to protect while while maintaining your style</p></a></div>
-          <div class="col-lg-3 col-md-6"><a class="text-reset text-decoration-none" href="#"><img class="mb-4" src="{% static 'travelsite/img/headphone.png' %}" alt="" height="150">
-              <h3 class="h5">Headphones</h3>
-              <p class="text-small text-muted">Enjoy your best audio track in style </p></a></div>
-        </div>
-      </div>
+     {% comment %} {% include 'travel/traveltools.html' %} {% endcomment %}
     </section>
+    
     <!-- Subscribe section -->
     <section class="py-5">
       <div class="container py-4">
@@ -204,61 +214,11 @@
     </section>
     <!-- Top categories section -->
     <section class="py-5 bg-light">
-      <div class="container py-4">
-        <header class="mb-5 text-center">
-          <h2>Top categories</h2>
-          <p> Bringing you the best places to be across the world</p>
-        </header>
-        <div class="row text-center">
-          <div class="col-lg-2 col-md-4 col-sm-6 mb-4 mb-lg-0"><a class="reset-anchor d-block" href="">
-              <svg class="svg-icon mb-3 svg-icon-big svg-icon-light text-primary">
-                <use xlink:href="#food-1"> </use>
-              </svg>
-              <h3 class="h5">Restaurants</h3>
-              <p class="text-muted text-small">3 Destinations</p></a></div>
-          <div class="col-lg-2 col-md-4 col-sm-6 mb-4 mb-lg-0"><a class="reset-anchor d-block" href="">
-              <svg class="svg-icon mb-3 svg-icon-big svg-icon-light text-primary">
-                <use xlink:href="#paper-bag-1"> </use>
-              </svg>
-              <h3 class="h5 mb-1">Markets</h3>
-              <p class="text-muted text-small">7 Destinations</p></a></div>
-          <div class="col-lg-2 col-md-4 col-sm-6 mb-4 mb-lg-0"><a class="reset-anchor d-block" href=" ">
-              <svg class="svg-icon mb-3 svg-icon-big svg-icon-light text-primary">
-                <use xlink:href="#special-price-1"> </use>
-              </svg>
-              <h3 class="h5 mb-1">Low budget</h3>
-              <p class="text-muted text-small">2 Destinations</p></a></div>
-          <div class="col-lg-2 col-md-4 col-sm-6 mb-4 mb-lg-0"><a class="reset-anchor d-block" href="">
-              <svg class="svg-icon mb-3 svg-icon-big svg-icon-light text-primary">
-                <use xlink:href="#movie-camera-1"> </use>
-              </svg>
-              <h3 class="h5 mb-1">Cinemas</h3>
-              <p class="text-muted text-small">4 Destinations</p></a></div>
-          <div class="col-lg-2 col-md-4 col-sm-6 mb-4 mb-lg-0"><a class="reset-anchor d-block" href="">
-              <svg class="svg-icon mb-3 svg-icon-big svg-icon-light text-primary">
-                <use xlink:href="#beach-1"> </use>
-              </svg>
-              <h3 class="h5 mb-1">Beaches</h3>
-              <p class="text-muted text-small">5 Destinations</p></a></div>
-          <div class="col-lg-2 col-md-4 col-sm-6 mb-4 mb-lg-0"><a class="reset-anchor d-block" href="">
-              <svg class="svg-icon mb-3 svg-icon-big svg-icon-light text-primary">
-                <use xlink:href="#camping-1"> </use>
-              </svg>
-              <h3 class="h5 mb-1">Camping</h3>
-              <p class="text-muted text-small">6 Destinations</p></a></div>
-        </div>
-      </div>
+      
     </section>
     <!-- Sponsors section-->
     <section class="py-5">
-      <div class="container py-4">
-        <header class="text-center mb-4">
-          <h2>Our sponsors</h2>
-        </header>
-        <!-- Brands -->
-        <div class="owl-carousel sponsors-slider"><a href="#"><img class="d-block mx-auto my-3 sponsor" src="img/brand-1.svg" alt=""></a><a href="#"><img class="d-block mx-auto my-3 sponsor" src="img/brand-2.svg" alt=""></a><a href="#"><img class="d-block mx-auto my-3 sponsor" src="img/brand-3.svg" alt=""></a><a href="#"><img class="d-block mx-auto my-3 sponsor" src="img/brand-4.svg" alt=""></a><a href="#"><img class="d-block mx-auto my-3 sponsor" src="img/brand-5.svg" alt=""></a><a href="#"><img class="d-block mx-auto my-3 sponsor" src="img/brand-6.svg" alt=""></a>
-        </div>
-      </div>
+      
     </section>
     <footer class="bg-dark py-4">
       <div class="container">

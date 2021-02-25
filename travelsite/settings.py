@@ -81,6 +81,7 @@ TEMPLATES = [
         'DIRS': [
             # os.path.join(BASE_DIR,'travelblog/templates/travelblog'),
             os.path.join(BASE_DIR,'travelsite/templates/travelsite'),
+            os.path.join(BASE_DIR,'travel/templates/travel'),
             os.path.join(BASE_DIR,'travelsite/templates/travelsite/account'),
 
         ],
@@ -173,6 +174,8 @@ django_heroku.settings(locals())
 
 # for aw3 configuration
 
+LOGIN_REDIRECT_URL= 'travel:dashboard'
+
 AWS_ACCESS_KEY_ID = "AKIA235CREQF3JH3WM7R"
 AWS_SECRET_ACCESS_KEY = "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"
 AWS_STORAGE_BUCKET_NAME  = "travelsite-franklymade-bucket"
@@ -189,22 +192,6 @@ AWS_S3_HOST = 'us-east-2.amazonaws.com'
 AWS_S3_REGION_NAME = 'us-east-2'
 
 AWS_S3_SIGNATURE_VERSION = 's3v4'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # this is for tinyMCE Configuration

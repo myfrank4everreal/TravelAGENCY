@@ -12,6 +12,7 @@ from django.db import IntegrityError
 from .forms import BlogForm
 from django.core.checks import messages
 
+from django.contrib.auth.decorators import login_required, permission_required
 
 
 def get_author(user):
@@ -110,6 +111,8 @@ def blogDetail(request, id):
 
 # if request.user.is_authenticated:
 #         PostView.objects.get_or_create(user=request.user, post=post)
+
+
 
 def post_create(request):
     err_msg = ''
