@@ -1,3 +1,4 @@
+from travel.views import home
 from django.db.models.query import QuerySet
 from django.shortcuts import redirect, render, get_object_or_404
 from django.db.models import Q
@@ -11,6 +12,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db import IntegrityError
 from .forms import BlogForm
 from django.core.checks import messages
+
 
 from django.contrib.auth.decorators import login_required, permission_required
 

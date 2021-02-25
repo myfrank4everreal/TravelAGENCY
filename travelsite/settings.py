@@ -162,7 +162,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles'),
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'travelsite/static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'travelsite/static'),
+    os.path.join(BASE_DIR, 'travel/static'),
 ]
 
 MEDIA_URL = '/media/'
@@ -174,6 +176,7 @@ django_heroku.settings(locals())
 
 # for aw3 configuration
 
+# to redirect user to the dashboard after login
 LOGIN_REDIRECT_URL= 'travel:dashboard'
 
 AWS_ACCESS_KEY_ID = "AKIA235CREQF3JH3WM7R"

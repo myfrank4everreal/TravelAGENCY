@@ -23,7 +23,10 @@ def home(request):
         new_signup = Signup()
         new_signup.email = email
         new_signup.save()
+        
+    new_signup= Signup()
     context = {
+        'new_signup':new_signup,
         'featured_blog':featured_blog,
         'most_recent_jobs':most_recent_jobs,
         
@@ -54,7 +57,7 @@ def dashBoard(response):
             
     
         # return render(response, 'travel/dashboard.html', {'all_user_post':all_user_post})
-    return render(response, 'travel/dashboardactive.html')
+    return render(response, 'travel/dashboard.html')
 
 
 def travelInfo(request):
