@@ -16,6 +16,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 
 
 def home(request):
+    new_signup= Signup()
     featured_blog = Blog.objects.filter(featuredpost=True)
     most_recent_jobs = JobPost.objects.order_by("-post_date")[0:4]
     if request.method=="POST":
@@ -23,8 +24,8 @@ def home(request):
         new_signup = Signup()
         new_signup.email = email
         new_signup.save()
-        
-    new_signup= Signup()
+
+    
     context = {
         'new_signup':new_signup,
         'featured_blog':featured_blog,
