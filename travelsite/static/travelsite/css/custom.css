@@ -2,13 +2,13 @@
 
 
 
-.mybg-dark {
+.bg-dark {
     background-color: #0c4160!important;
 }
 
 .btn-dark {
     color: #fff;
-    background-color: #1e7e34;
+    background-color: #aea885;
     border-color: #000 !important;
 }
 
@@ -35,10 +35,15 @@
     background-color: #0c4160;
     border-color: #ebaa3d;
   }
+
+.btn-link:hover {
+    color: #aea885;
+    text-decoration: underline;
+  }
   
   .btn-primary:hover {
     color: #212529;
-    background-color: #e79b1a;
+    background-color: #aea885;
     border-color: #de9417;
   }
   
