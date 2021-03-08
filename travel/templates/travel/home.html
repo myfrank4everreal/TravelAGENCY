@@ -7,46 +7,15 @@
 
 {% comment %}  {% endcomment %}
 
-{% comment %} service category {% endcomment %}
-{% include 'travel/headerbanner.html' %}
+{% comment %} header banner category {% endcomment %}
+{% include 'travel/included/headerbanner.html' %}
 
-<section class="pb-5 mt-5 ">
-      <div class="container pb-4">
-        <header class="text-center mb-5">
-          <h2>Service Category</h2>
-          <p></p>
-        </header>
-        <div class="row justify-content-center">
-          <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href=""><img class="img-fluid" src="{% static 'travelsite/img/listing-tnumbnail-1.jpg' %}" alt="">
-              <div class="instagram-item-overlay p-5">
-                <h6> Learn about were you are going. Best tips and tricks</h6>
-              </div></a>
-              <div class="text-center mb-5 mt-1">
-              <h5>TRAVEL GUIDE</h5>
-              </div>
-            </div>
+{% comment %} service gategory {% endcomment %}
+{% include 'travel/included/servicegategory.html' %}
 
-          <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href=""><img class="img-fluid" src="{% static 'travelsite/img/listing-tnumbnail-2.jpg' %}" alt="">
-              <div class="instagram-item-overlay p-5">
-                <h6>Geting a visa made easy </h6>
-              </div></a>
-              <div class="text-center mb-5 mt-1">
-              <h5>VISA PROCESSING GUIDE</h5>
-              </div>
-              </div>
-          <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href=""><img class="img-fluid" src="{% static 'travelsite/img/listing-tnumbnail-3.jpg' %}" alt="">
-              <div class="instagram-item-overlay p-5">
-                <h6>Your dream job delivered to you with out hustle</h6>
-              </div></a>
-              <div class="text-center mb-5 mt-1">
-              <h5>Live and work abroad</h5>
-              </div>
-              </div>
-          
-          
-        </div>
-      </div>
-    </section>
+
+  {% comment %} {% include 'travel/servicecategory.html' %} {% endcomment %}
+
 
     {% comment %} featured jobs {% endcomment %}
 
@@ -113,6 +82,7 @@
           </div></a>
       </div>
     </section>
+    <hr>
     <!-- Divider Section -->
     <section class="py-5">
       <div class="container py-4">
@@ -122,16 +92,23 @@
             <div class="h-100 bg-light d-flex align-items-center">
               <div class="py-5 pr-4 pl-3 pl-lg-0">
                 <p class="text-primary font-weight-bold small text-uppercase mb-2">About</p>
-                <h3 class="h4"> <a class="text-reset" href="post.html">Presic Tour and Recruitment services</a></h3>
+                <h3 class="h4"> <a class="text-reset" href="post.html">Presic Travels and Recruitment services</a></h3>
                 <p class="text-muted text-small mb-3">  </p>
                 <p class="text-muted text-small mb-3"> </p>
                 <ul class="list-inline small text-uppercase mb-0">
                   <li class="list-inline-item align-middle"><img class="rounded-circle shadow-sm" src="img/person-1.jpg" alt="" width="30"/></li>
                   <li class="list-inline-item mr-0 text-gray align-middle"> </li>
                   <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#"></a></li>
-                  <li class="list-inline-item text-gray align-middle mr-0">|</li>
-                  <li class="list-inline-item text-gray align-middle">Jan, 2021</li>
+ 
                 </ul>
+                <br>
+                <br>
+                {% comment %} form {% endcomment %}
+                <p class="text-primary font-weight-bold small text-uppercase mb-2">Send us a message</p>
+                   
+                  {% include 'travel/included/contact-form.html' %}
+                 {% comment %} form end {% endcomment %}
+                
               </div>
             </div>
           </div>
@@ -139,76 +116,32 @@
         </div>
       </div>
     </section>
+    <br>
+    <hr>
+   {% comment %} in dubai tours and visa service {% endcomment %}
+   {% include 'travel/included/indubai-tours-visa.html' %}
+
     <!-- Job section-->
-    <section class="pb-5">
-      <div class="container pb-4">
-        <header class="text-center mb-5">
-          <h2>Jobs in your location</h2>
-          <p></p>
-        </header>
-        <div class="row">
-           {% for post in most_recent_jobs %}
-               
-              <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href="{{ post.get_absolute_url }}"><img class="img-fluid mb-4" src="{{post.image.url}}" alt=""/></a>
-              <div class="custom-card  p-5 ">
-                <ul class="list-inline small text-uppercase mb-0">
-                  <li class="list-inline-item mr-0 text-gray align-middle">By </li>
-                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.company_name}}</a></li>
-                  
-                  <li class="list-inline-item text-gray align-middle">{{post.post_date|timesince}} ago</li>
-                </ul>
-                
-                <h3 class="h4 mt-2"> <a class="reset-anchor" href="{{ post.get_absolute_url }}">{{post.job_title}}</a></h3>
-                  
-                
-                  <a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">cat title</a>
-                
-
-                <p class="text-small text-left mb-1">{{post.shotend_desc}}</p><a class="btn btn-link text-left" href="{{ post.get_absolute_url }}">View Job</a>
-              </div>
-              </div>
-                {% endfor %}
-        </div>
-      </div>
-    </section>
-
+   
     <!-- blog section-->
 
-    <section class="pb-5">
-      <div class="container pb-4">
-        <header class="text-center mb-5">
-          <h2>featured blog Post</h2>
-          <p></p>
-        </header>
-        <div class="row">
-        {% for post in featured_blog %}
-          <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href="{{ post.get_absolute_url }}"><img class="img-fluid" src="{{ post.image.url }}" alt="">
-              <div class="instagram-item-overlay p-5">
-                <h6> <a href="{{ post.get_absolute_url }}" >{{ post.detail }}</a></h6>
-              </div></a>
-              <div class="text-center mb-5 mt-1">
-              <h5>{{ post.title }}</h5>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-
+    
+    <br>
+    <hr>
      <section class="py-5 bg-light">
-     {% include 'travel/traveltools.html' %}
+     {% include 'travel/included/traveltools.html' %}
     </section>
 
     <section  class="py-5">
       {% if new_signup %}
       {% else %}
-      {% include 'travel\subscribed.html' %}
+      {% include 'travel/included/subscribed.html' %}
     </section>
     
     
     {% endif %}
 
-      {% include 'travel/topcategory.html' %}
+      {% include 'travel/included/topcategory.html' %}
     
     
 {% endblock %}

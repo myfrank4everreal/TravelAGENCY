@@ -1282,8 +1282,9 @@ a.text-hover-dark:focus, a.text-hover-dark:hover {
   background: none !important;
 }
 
+/* ************************* */
 .bg-darker {
-  background: #008037 !important;
+  background: #0c4160 !important;
 }
 
 .list-check {
@@ -1551,14 +1552,14 @@ STYLE SWITCHER FOR DEMO
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #000;
+  color: #f8f9fa;
   font-weight: 400;
   font-family: "Abril Fatface", serif;
   transition: all 0.3s;
 }
 
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
-  color: #ebaa3d;
+  color: #aea885;
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
@@ -1569,7 +1570,7 @@ STYLE SWITCHER FOR DEMO
 .navbar-light .navbar-nav .active > .nav-link,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active {
-  color: #ebaa3d;
+  color: #aea885;
 }
 
 .navbar-light .navbar-toggler {
@@ -1616,7 +1617,7 @@ STYLE SWITCHER FOR DEMO
 .navbar-dark .navbar-nav .active > .nav-link,
 .navbar-dark .navbar-nav .nav-link.show,
 .navbar-dark .navbar-nav .nav-link.active {
-  color: #ebaa3d;
+  color: #aea885;
 }
 
 .navbar-dark .navbar-toggler {
@@ -2535,9 +2536,8 @@ button.bg-light:focus {
   background-color: #dae0e5 !important;
 }
 
-.bg-dark {
-  background-color: #008037 !important;
-}
+/* nav color */
+
 
 a.bg-dark:hover, a.bg-dark:focus,
 button.bg-dark:hover,

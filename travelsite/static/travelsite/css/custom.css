@@ -3,16 +3,55 @@
 
 
 .mybg-dark {
-    background-color: #008037 !important;
+    background-color: #0c4160!important;
 }
 
 .btn-dark {
     color: #fff;
     background-color: #1e7e34;
-    border-color: #000;
+    border-color: #000 !important;
 }
 
-
+.btn-link {
+    font-weight: 400;
+    color: #0c4160 !important;
+  }
+  
+.btn-link:hover {
+    color: #0c4160 !important;
+    text-decoration: underline;
+  }
+  
+.btn-link:focus, .btn-link.focus {
+    text-decoration: underline;
+  }
+  
+  .btn-link:disabled, .btn-link.disabled {
+    color: #6c757d;
+  }
+  
+  .btn-primary {
+    color: #212529;
+    background-color: #0c4160;
+    border-color: #ebaa3d;
+  }
+  
+  .btn-primary:hover {
+    color: #212529;
+    background-color: #e79b1a;
+    border-color: #de9417;
+  }
+  
+  .btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(235, 170, 61, 0.5);
+  }
+  
+  .btn-primary.disabled, .btn-primary:disabled {
+    color: #212529;
+    background-color: #ebaa3d;
+    border-color: #ebaa3d;
+  }
+  
 
 .custom-card{
     margin-top:80px;

@@ -13,5 +13,7 @@ urlpatterns = [
     
     path('travel-guide', views.travelInfo, name='travel'),
     path('visa-processing', views.visaInfo, name='visa'),
+    path('toure-guide', views.toureguiedView, name='toure-guide'),
+    path('cargo', views.cargoView, name='cargo'),
     # path('find-a-job', views.jobInfo, name='job'),
 ]

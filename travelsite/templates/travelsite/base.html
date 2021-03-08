@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Presic Travels And Recruitment Services</title>
+    <title>Royal Travels And Recruitment Services</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -28,9 +28,17 @@
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="{% static 'travelsite/css/style.default.css' %}" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="{% static 'travelsite/css/custom.css' %}"  >
+    <link rel="stylesheet" href="{% static 'travelsite\css\custom.css' %}"  >
+    
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.png">
+
+       <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
 
 
     {% comment %} crispy forms style {% endcomment %}
@@ -76,23 +84,22 @@
     <!-- Header-->
     <header class="header">
       <!-- Top bar -->
-      <div class="py-2 bg-dark  text-white">
+      <div class="py-2 bg-light  text-dark">
         <div class="container py-1">
-          <div class="row align-items-center">
+          <div class="row ">
             <div class="col-lg-4">
-              <ul class="list-inline mb-0 text-small">
-                <li class="list-inline-item"><a class="reset-anchor" href="{% url 'travel:aboutus' %}">About us</a></li>
-                <li class="list-inline-item">|</li>
-                {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#">Sitemap</a></li> {% endcomment %}
-              </ul>
+              
+      
             </div>
-            <div class="col-lg-4 d-none d-lg-block text-center">
+            <div class="col-lg-4  d-lg-block text-center">
               <ul class="list-inline mb-0 small">
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="list-inline-item ml-auto mt-0 mb-0 p-0 "><a class="reset-anchor" href="{% url 'travel:home' %}"><img src="{% static 'travelsite/img/presic_logo2.png' %}"></a></li>
+
+                <li class="list-inline-item"><a class="reset-anchor" href="https://www.facebook.com/presictravels"><i class="fab fa-facebook-f"></i></a></li>
                 <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-whatsapp"></i></a></li>
+                <li class="list-inline-item"><a class="reset-anchor" href="https://api.whatsapp.com/send?phone=971586537619"><i class="fab fa-whatsapp"></i></a></li>
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-instagram"></i></a></li> {% endcomment %}
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li>
+                {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li> {% endcomment %}
                 <li class="list-inline-item"><a class="reset-anchor" href="mailto:presictravels@gmail.com"><i class="fab fa-email"></i>presictravels@gmail.com</a></li>
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-youtube"></i></a></li> {% endcomment %}
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li> {% endcomment %}
@@ -103,7 +110,7 @@
             
       
         {% comment %} ends here {% endcomment %}
-            <div class="col-lg-4  d-lg-block text-right">
+            <div class="col-lg-4   text-right">
             {% comment %} this will be seen if youser is authenticated and authorized{% endcomment %}
             {% if user.is_authenticated %}
               <ul class="navbar-nav ml-auto ml-md-0">
@@ -142,11 +149,11 @@
 
       <!-- Navbar 2 -->
       
- <nav class="navbar navbar-expand-lg navbar-light border-gray py-2 bg-light">
+ <nav class="navbar navbar-expand-lg navbar-light border-gray py-2 bg-dark text-white">
         <div class="container">
           <button class="navbar-toggler navbar-toggler-right mx-auto border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto">
+            <ul class="navbar-nav mx-auto text-light">
               <li class="nav-item px-1">
                 <!-- Link--><a class="nav-link active" href="{% url 'travel:home' %}">Home</a>
               </li>
@@ -202,24 +209,24 @@
     <section class="py-5">
       
     </section>
-    <footer class="bg-dark py-4">
-      <div class="container">
+    <footer class="bg-dark py-6" style="height:auto;">
+      <div class="container ">
         <div class="row py-2">
           <div class="col-lg-4 text-center text-lg-left mb-2 mb-lg-0">
-            <p class="small text-muted text-uppercase mb-0">presic tours &copy; copyright 2020 - all rights reserved</p>
+            <p class="large text-white text-uppercase mb-0 mt-5">presic travels &copy; copyright 2020 - all rights reserved</p>
           </div>
-          <div class="col-lg-4 text-center mb-2 mb-lg-0">
+          <div class="col-lg-4 text-center mb-2 mt-5 mb-lg-0">
             <ul class="list-inline text-white small mb-0">
-              <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-facebook-f"></i></a></li>
-              <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a class="reset-anchor" href="https://www.facebook.com/presictravels"><i class="fab fa-facebook-f"></i></a></li>
+              <li class="list-inline-item"><a class="reset-anchor" href="https://bit.ly/3ecLzGz"><i class="fab fa-whatsapp"></i></a></li>
               <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-instagram"></i></a></li>
-              <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li>
+              {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li>
               <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-youtube"></i></a></li>
-              <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li>
+              <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li> {% endcomment %}
             </ul>
           </div>
           <div class="col-lg-4 text-center text-lg-right">
-            <p class="small text-muted text-uppercase mb-0">Powered by<a href=""><h6 style="color:dark !important;">franklymade</h6></a>. </p>
+            <p class="small text-muted text-uppercase mt-5 mb-0">Powered by<a href=""><h6 style="color:dark !important;">franklymade</h6></a>. </p>
             
             <p style="color:dark !important;" class="small text-muted text-uppercase mb-0">Template by <a href="https://bootstraptemple.com/p/bootstrap-travel"><h6 style="color:dark !important; font-size:3px !important;">Bootstrap Temples</h6></a>. </p>
           </div>

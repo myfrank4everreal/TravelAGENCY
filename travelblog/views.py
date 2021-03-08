@@ -70,6 +70,7 @@ def blogView(request):
         'queryset':paginated_queryset,
         "page_request_var":page_request_var ,
         "featured_post":featured_post,
+        
         "most_recent_post":most_recent_post,
         
         

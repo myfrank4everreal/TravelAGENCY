@@ -1,0 +1,33 @@
+
+ <section class="pb-5">
+      <div class="container pb-4">
+        <header class="text-center mb-5">
+          <h2>Jobs in your location</h2>
+          <p></p>
+        </header>
+        <div class="row">
+           {% for post in most_recent_jobs %}
+               
+              <div class="col-lg-3 col-md-6 px-md-1 py-1"><a class="instagram-item d-block w-100 reset-anchor text-white" href="{{ post.get_absolute_url }}"><img class="img-fluid mb-4" src="{{post.image.url}}" alt=""/></a>
+              <div class="custom-card  p-5 ">
+                <ul class="list-inline small text-uppercase mb-0">
+                  <li class="list-inline-item mr-0 text-gray align-middle">By </li>
+                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.company_name}}</a></li>
+                  
+                  <li class="list-inline-item text-gray align-middle">{{post.post_date|timesince}} ago</li>
+                </ul>
+                
+                <h3 class="h4 mt-2"> <a class="reset-anchor" href="{{ post.get_absolute_url }}">{{post.job_title}}</a></h3>
+                  
+                
+                  <a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">cat title</a>
+                
+
+                <p class="text-small text-left mb-1">{{post.shotend_desc}}</p><a class="btn btn-link text-left" href="{{ post.get_absolute_url }}">View Job</a>
+              </div>
+              </div>
+                {% endfor %}
+        </div>
+        <button class='btn btn-primary btn-block destination-btn text-white'>view more</button>
+      </div>
+    </section>

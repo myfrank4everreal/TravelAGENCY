@@ -1,0 +1,32 @@
+ 
+{% load static %}
+ 
+ 
+ 
+ <section class="pt-5 container " style="margin-top:20px; margin-bottom:20px;" >
+      <div class="container  text-center">
+        <h1>SERVICES</h1>
+        <p class="mb-0">A list of services we provide</p>
+      </div>
+      <div class="  destinations-slider owl-carousel owl-theme  "><a class="destination d-flex align-items-end bg-center bg-cover" href="{% url 'travel:visa' %}" style=" height:250px; background: url({% static 'travelsite/img/travel-home-4.jpg' %})">
+        
+          <div class=" w-100 text-center text-white index-forward has-transition">
+            <h2 class="h3 mb-4">Visa Processing</h2>
+            {% comment %} <div class="btn btn-primary btn-block destination-btn text-white">Discover</div> {% endcomment %}
+          </div></a><a class="destination d-flex align-items-end bg-center bg-cover" href="{% url 'travel:toure-guide' %}" style= " height:250px; background: url({% static 'travelsite/img/travel-home-2.jpg' %})">
+          <div class=" w-100 text-center text-white index-forward has-transition">
+            <h2 class="h3 mb-4">City Tour Guide</h2>
+            {% comment %} <div class="btn btn-primary btn-block destination-btn text-white">Discover</div> {% endcomment %}
+          </div></a><a class="destination d-flex align-items-end bg-center bg-cover" href="{% url 'travel:cargo' %}" style=" height:250px; background: url({% static 'travelsite/img/travel-home-3.jpg' %})">
+          <div class=" w-100 text-center text-white index-forward has-transition">
+            <h2 class="h3 mb-4">Cargo</h2>
+            {% comment %} <div class="btn btn-primary btn-block destination-btn text-white">Discover</div> {% endcomment %}
+          </div></a><a class="destination d-flex align-items-end bg-center bg-cover" href="{% url 'travel:travel' %}" style=" height:250px; background: url({% static 'travelsite/img/travel-home-1.jpg' %})">
+          <div class=" w-100 text-center text-white index-forward has-transition">
+            <h2 class="h3 mb-4">Live & work Abroad</h2>
+            
+            {% comment %} <div class="btn btn-primary btn-block destination-btn text-white">Discover</div> {% endcomment %}
+          </div></a>
+      </div>
+    </section>
+   

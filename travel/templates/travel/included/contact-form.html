@@ -1,0 +1,32 @@
+
+{% load static %}
+
+<form>
+<div class="input-group mb-3">
+  
+  <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+<div class="input-group mb-3">
+  <input type="email" class="form-control" placeholder="email" aria-label="Username">
+  
+</div>
+
+<div class="input-group">
+  <span class="input-group-text">Enter your message</span>
+  <textarea class="form-control" aria-label="With textarea"></textarea>
+</div>
+
+<div class="input-group mb-3 mt-3 text-center">
+   <input type='submit' class= "btn btn-primary btn-block destination-btn text-white " placeholder="Submit">  
+</div>
+<form>
+
+<h3 class="h4 mb-4">Connect with us </h3>
+<ul class="list-inline mb-5">
+    {% comment %} <li class="list-inline-item mr-1 mb-3"><iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fpresictravels.herokuapp.com/blog%2F&layout=button_count&size=small&width=77&height=20&appId" width="77" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></li> {% endcomment %}
+
+    <li class="list-inline-item mr-1 mb-3"><a class="social-link-share facebook" href="http://m.me/103131698424329"><i class="fab fa-facebook-f mr-2"></i>facebook </a></li>
+    <li class="list-inline-item mr-1 mb-3"><a class="social-link-share twitter" href="#"><i class="fab fa-twitter mr-2"></i>twitter</a></li>
+    <li class="list-inline-item mr-1 mb-3"><a class="social-link-share instagram" href="https://api.whatsapp.com/send?phone=971586537619&text=Welcome"><i class="fab fab fa-whatsapp mr-2"></i>whatsapp</a></li>
+</ul>

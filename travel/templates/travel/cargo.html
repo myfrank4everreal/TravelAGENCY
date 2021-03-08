@@ -1,0 +1,93 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+<section class="hero bg-center bg-cover" style="background: url({% static 'travelsite/img/hero-banner.jpg' %})">
+      <div class="dark-overlay py-5">
+        <div class="overlay-content">
+          <div class="container py-5 text-white text-center">
+            <h1>Cargo Services</h1>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Blog listing -->
+    <section class="pt-5">
+      <div class="container pt-5">
+        <div class="row mb-5">
+          <div class="col-lg-8">
+            <div class="row text-center">
+                {% for post in queryset %}
+
+              <div class="col-lg-6 mb-5"><a href="{{ post.get_absolute_url }}"><img class="img-fluid mb-4" src="{{post.image.url}}" alt=""/></a>
+                <ul class="list-inline small text-uppercase mb-0">
+                  <li class="list-inline-item mr-0 text-gray align-middle">By </li>
+                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.author}}</a></li>
+                  
+                  <li class="list-inline-item text-gray align-middle mr-0">|</li>
+                  <li class="list-inline-item text-gray align-middle">{{post.post_date|timesince}} ago</li>
+                </ul>
+                
+                <h3 class="h4 mt-2"> <a class="reset-anchor" href="{{ post.get_absolute_url }}">{{post.title}}</a></h3>
+                  
+                
+                  <a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">cat title</a>
+                
+
+                <p class="text-small mb-1">{{post.shotend_desc}}</p><a class="btn btn-link" href="{{ post.get_absolute_url }}">Continue reading</a>
+              </div>
+                {% endfor %}
+
+             </div>
+            <!-- Listing navigation -->
+            <div class="p-4 bg-light mb-5">
+              <div class="row">
+                {% if queryset.has_previous %}
+                <div class="col-sm-6 text-center text-sm-left mb-2 mb-sm-0"><a class="btn btn-outline-secondary btn-sm" href="?{{ page_request_var }}={{ queryset.previouse_page_number }}"><i class="fas fa-angle-left mr-2"></i>Prev posts</a></div>
+                {% endif %}
+              
+                {% if queryset.has_next %}
+                <div class="col-sm-6 text-center text-sm-right text-right"><a class="btn btn-outline-secondary btn-sm" href="?{{ page_request_var }}={{ queryset.next_page_number }}">Next posts<i class="fas fa-angle-right ml-2"></i></a></div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <!-- Sidebar -->
+
+        {% include 'travel/included/side-nav.html' %}
+
+            <!-- Instagram widget -->
+            <div class="mb-5">
+              {% comment %} <h3 class="h5">Follow on Instagram</h3>
+              <p class="text-small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+              <div class="row px-3">
+                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
+                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-1.jpg' %}" alt=""></div></a></div>
+                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
+                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-2.jpg' %}" alt=""></div></a></div>
+                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
+                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-3.jpg' %}" alt=""></div></a></div>
+                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
+                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-4.jpg' %}" alt=""></div></a></div>
+                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
+                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-5.jpg' %}" alt=""></div></a></div>
+                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
+                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-6.jpg' %}" alt=""></div></a></div>
+                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
+                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-8.jpg' %}" alt=""></div></a></div>
+                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
+                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-1.jpg' %}" alt=""></div></a></div>
+              </div> {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

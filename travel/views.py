@@ -54,13 +54,14 @@ def dashBoard(response):
     # else:
     #     print('no users found by my findin frank')    
 
-    
-            
-    
         # return render(response, 'travel/dashboard.html', {'all_user_post':all_user_post})
     return render(response, 'travel/dashboard.html')
 
+def services(request):
+    return render(request, 'travel/service_detail.html')
 
+
+    
 def travelInfo(request):
     return render(request, 'travel/travelinfo.html' )
 
@@ -69,6 +70,13 @@ def visaInfo(request):
     return render(request, 'travel/visainfo.html' )
 
 
+def cargoView(request):
+    return render(request, 'travel/cargo.html')
+
+
+
+def toureguiedView(request):
+    return render(request, 'travel/toureguide.html')
 
 
 

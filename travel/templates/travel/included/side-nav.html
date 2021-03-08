@@ -1,0 +1,48 @@
+ {% load static %}
+ 
+ 
+ <div class="col-lg-4">
+            <!-- About me widget -->
+            <div class="mb-5 text-center"><img class="mb-3 rounded-circle img-thumbnail shadow-sm" src="" alt="" width="110">
+              <h3 class="h4">Social connect</h3>
+                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-youtube"></i></a></li>
+                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li>
+              </ul>
+            </div>
+            <!-- Categories widget -->
+            <div class="mb-5 text-center"><a class="category reset-anchor bg-cover bg-center mb-2" href="#" style="background: url({% static 'travelsite/img/category-1.jpg' %})">
+                <p class="category-title text-uppercase small">Lifestyle</p></a><a class="category reset-anchor bg-cover bg-center mb-2" href="#" style="background: url({% static 'travelsite/img/category-1.jpg' %})">
+                <p class="category-title text-uppercase small">Travel</p></a><a class="category reset-anchor bg-cover bg-center" href="#" style="background: url({% static 'travelsite/img/category-3.jpg' %})">
+                <p class="category-title text-uppercase small">Jobs</p></a></div>
+            <!-- Newsletter widget -->
+            <div class="px-4 py-5 bg-light mb-5 text-center">
+              <h3 class="h5"><i class="far fa-envelope mr-2"></i>Join the family</h3>
+              <p class="text-small text-muted">get the latest info</p>
+              <form action="." method = "POST">
+              {% csrf_token %}
+                <div class="form-group mb-1">
+                  <input class="form-control form-control-sm" type="email" name="email" placeholder="Emaill address">
+                </div>
+                <div class="form-group mb-0">
+                  <button class="btn btn-dark btn-block btn-sm" type="submit">Subscribe</button>
+                </div>
+              </form>
+            </div>
+            <!-- Latest posts widget -->
+            <div class="mb-5">
+              <h3 class="h5">Latest posts</h3>
+              <p class="text-small text-muted mb-4"></p>
+              <ul class="list-unstyled">
+              {% for post in most_recent_post %}
+                <li class="media mb-1"><a href="post.html"><img src="{{post.image.url}}" alt="" width="80"></a>
+                  <div class="media-body ml-3">
+                    <p class="small text-primary  mb-0">{{post.post_date|timesince}} ago</p>
+                    <h6 class="mb-1"><a class="reset-anchor" href="post.html">{{post.title}}</a></h6>
+                    <p class="small text-muted">{{post.detail}}</p>
+                  </div>
+                </li>
+                {% endfor %}
+                
+              </ul>
+            </div>
+         
