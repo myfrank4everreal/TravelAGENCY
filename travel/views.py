@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from marketing.models import Signup
 from travelblog.models import Blog
 from jobs.models import JobPost
+from travelblog.models import Blog
 
 
 
@@ -19,6 +20,7 @@ def home(request):
     new_signup= Signup()
     featured_blog = Blog.objects.filter(featuredpost=True)
     most_recent_jobs = JobPost.objects.order_by("-post_date")[0:4]
+    most_recent_blog = Blog.objects.order_by("-post_date")[0:4]
     if request.method=="POST":
         email = request.POST["email"]
         new_signup = Signup()
@@ -30,6 +32,7 @@ def home(request):
         'new_signup':new_signup,
         'featured_blog':featured_blog,
         'most_recent_jobs':most_recent_jobs,
+        'most_recent_blog':most_recent_blog,
         
     }
 
