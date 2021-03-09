@@ -70,3 +70,20 @@
     transform:  translateY(-20%);
 
 }
+
+
+.flight-custom-card{
+    margin-top: 0;
+    border-style: groove;
+    border-color: #0c4160;
+    border-width: 7px !important;   
+    background:  #fff;
+    display: flex;
+    flex-direction: column;
+    padding:  16px;
+    box-shadow:  0 4px 8px   rgba(0, 0, 0.3);
+    position:   flexed;
+    /* top:   50%; */
+    transform:  translateY(-20%);
+
+}
