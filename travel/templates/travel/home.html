@@ -9,7 +9,9 @@
 
 {% comment %} header banner category {% endcomment %}
 {% include 'travel/included/headerbanner.html' %}
-{% include 'travel/included/skyscanerfreewidget.html' %}
+
+ {% comment %} the travel skyscanner flight booking  {% endcomment %}
+ {% include 'travel/included/skyscanerfreewidget.html' %}
 
 {% comment %} service gategory {% endcomment %}
 {% include 'travel/included/servicegategory.html' %}
@@ -18,75 +20,23 @@
   {% comment %} {% include 'travel/servicecategory.html' %} {% endcomment %}
 
 
-    {% comment %} featured jobs {% endcomment %}
-
+    {% comment %} travel destination {% endcomment %}
     <section class="pt-5">
       <div class="container  text-center">
         <h1>Featured Destinations</h1>
         <p class="mb-0">Check out these amaizing holiday destinations</p>
       </div>
-      <div class="  destinations-slider owl-carousel owl-theme nav-center-custom owl-padding"><a class="destination d-flex align-items-end bg-center bg-cover" href="post.html" style="background: url({% static 'travelsite/img/travel-home-4.jpg' %})">
-          <div class="destination-inner w-100 text-center text-white index-forward has-transition">
-            <p class="small text-uppercase mb-0">Paris</p>
-            <h2 class="h3 mb-4">France</h2>
-            <div class="btn btn-primary btn-block destination-btn text-white">Discover</div>
-          </div></a><a class="destination d-flex align-items-end bg-center bg-cover" href="#" style="background: url({% static 'travelsite/img/travel-home-2.jpg' %})">
-          <div class="destination-inner w-100 text-center text-white index-forward has-transition">
-            <p class="small text-uppercase mb-0">Tokyo</p>
-            <h2 class="h3 mb-4">Japan</h2>
-            <div class="btn btn-primary btn-block destination-btn text-white">Discover</div>
-          </div></a><a class="destination d-flex align-items-end bg-center bg-cover" href="#" style="background: url({% static 'travelsite/img/travel-home-3.jpg' %})">
-          <div class="destination-inner w-100 text-center text-white index-forward has-transition">
-            <p class="small text-uppercase mb-0">Madrid</p>
-            <h2 class="h3 mb-4">Spain</h2>
-            <div class="btn btn-primary btn-block destination-btn text-white">Discover</div>
-          </div></a><a class="destination d-flex align-items-end bg-center bg-cover" href="" style="background: url({% static 'travelsite/img/travel-home-1.jpg' %})">
-          <div class="destination-inner w-100 text-center text-white index-forward has-transition">
-            <p class="small text-uppercase mb-0">Rome</p>
-            <h2 class="h3 mb-4">Italy</h2>
-            <div class="btn btn-primary btn-block destination-btn text-white">Discover</div>
-          </div></a><a class="destination d-flex align-items-end bg-center bg-cover" href="#" style="background: url({% static 'travelsite/img/travel-home-5.jpg' %})">
-          <div class="destination-inner w-100 text-center text-white index-forward has-transition">
-            <p class="small text-uppercase mb-0">Jakarta</p>
-            <h2 class="h3 mb-4">Indonesia</h2>
-            <div class="btn btn-primary btn-block destination-btn text-white">Discover</div>
-          </div></a><a class="destination d-flex align-items-end bg-center bg-cover" href="#" style="background: url({% static 'travelsite/img/travel-home-6.jpg' %})">
-          <div class="destination-inner w-100 text-center text-white index-forward has-transition">
-            <p class="small text-uppercase mb-0">Ottawa</p>
-            <h2 class="h3 mb-4">Canada</h2>
-            <div class="btn btn-primary btn-block destination-btn text-white">Discover</div>
-          </div></a><a class="destination d-flex align-items-end bg-center bg-cover" href="#" style="background: url({% static 'travelsite/img/travel-home-7.jpg' %})">
-          <div class="destination-inner w-100 text-center text-white index-forward has-transition">
-            <p class="small text-uppercase mb-0">Cairo</p>
-            <h2 class="h3 mb-4">Egypt</h2>
-            <div class="btn btn-primary btn-block destination-btn text-white">Discover</div>
-          </div></a><a class="destination d-flex align-items-end bg-center bg-cover" href="#" style="background: url({% static 'travelsite/img/travel-home-4.jpg' %})">
-          <div class="destination-inner w-100 text-center text-white index-forward has-transition">
-            <p class="small text-uppercase mb-0">Berlin</p>
-            <h2 class="h3 mb-4">Germany</h2>
-            <div class="btn btn-primary btn-block destination-btn text-white">Discover</div>
-          </div></a><a class="destination d-flex align-items-end bg-center bg-cover" href="#" style="background: url({% static 'travelsite/img/travel-home-2.jpg' %})">
-          <div class="destination-inner w-100 text-center text-white index-forward has-transition">
-            <p class="small text-uppercase mb-0">Bangkok</p>
-            <h2 class="h3 mb-4">Thailand</h2>
-            <div class="btn btn-primary btn-block destination-btn text-white">Discover</div>
-          </div></a><a class="destination d-flex align-items-end bg-center bg-cover" href="#" style="background: url({% static 'travelsite/img/travel-home-3.jpg' %})">
-          <div class="destination-inner w-100 text-center text-white index-forward has-transition">
-            <p class="small text-uppercase mb-0">Malé</p>
-            <h2 class="h3 mb-4">Maldives</h2>
-            <div class="btn btn-primary btn-block destination-btn text-white">Discover</div>
-          </div></a><a class="destination d-flex align-items-end bg-center bg-cover" href="#" style="background: url({% static 'travelsite/img/travel-home-1.jpg' %})">
-          <div class="destination-inner w-100 text-center text-white index-forward has-transition">
-            <p class="small text-uppercase mb-0">New York</p>
-            <h2 class="h3 mb-4">United States</h2>
-            <div class="btn btn-primary btn-block destination-btn text-white">Discover</div>
-          </div></a>
+      <div class="container">
+        {% include 'travel/included/viator-featured-cities.html' %}
       </div>
+        
     </section>
+  
+
     <hr>
     <!-- Divider Section -->
     <section class="py-5">
-      <div class="container py-4">
+      <div class="container py-4 flight-custom-card">
         <!-- Home listing -->
         <div class="row align-items-stretch bg-full-left">
           <div class="col-lg-6 pr-lg-0 order-2 order-lg-1">
