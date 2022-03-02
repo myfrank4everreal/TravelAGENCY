@@ -1,0 +1,88 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{{ title }}
+
+
+
+{% block banner-section %}
+<section class="hero bg-center bg-cover" style="background: url({% static 'travelsite/img/myhero-banner2.png' %})">
+  <div class="dark-overlay py-5">
+    <div class="overlay-content">
+      <div class="container py-5 text-white text-center">
+        <h1>Jobs In {{cityobj.name}}</h1>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
+{% block content %}
+
+  
+    <!-- Blog listing -->
+    <section class="pt-5">
+      <div class="container pt-5">
+        <div class="row mb-5">
+          <div class="col-lg-10">
+            <div class="row ">
+              
+              <div class='container flight-custom-card'> 
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Search for job</label>
+                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=" search by : Skill, title, city">
+                </div>
+        
+              </div>
+
+             
+          {% comment %} post with pagination {% endcomment %}
+            {% for post in queryset %}
+               
+              <div class="col-lg-6 mb-5 "><a href="{{ post.get_absolute_url }}"><img class="img-fluid mb-4" src="{{post.image.url}}" alt=""/></a>
+              <div class="custom-card p-5 ">
+                <ul class="list-inline small text-uppercase mb-0">
+                  <li class="list-inline-item mr-0 text-gray align-middle">By </li>
+                  <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.company_name}}</a></li>
+                  
+                  <li class="list-inline-item text-gray align-middle mr-0">|</li>
+                  <li class="list-inline-item text-gray align-middle">{{post.post_date|timesince}} ago</li>
+                </ul>
+                
+                <h3 class="h4 mt-2"> <a class="reset-anchor" href="{{ post.get_absolute_url }}">{{post.job_title}}</a></h3>
+                  
+                
+                  <a class="reset-anchor text-gray text-uppercase small mb-2 d-block" href="#">cat title</a>
+                
+
+                <p class="text-small text-left mb-1">{{post.shotend_desc}}</p><a class="btn btn-link text-left" href="{{ post.get_absolute_url }}">View Job</a>
+              </div>
+              </div>
+                {% endfor %}
+
+             </div>
+            <!-- Listing navigation -->
+            <div class="p-4 bg-light mb-5">
+              <div class="row">
+                {% if queryset.has_previous %}
+                <div class="col-sm-6 text-center text-sm-left mb-2 mb-sm-0"><a class="btn btn-outline-secondary btn-sm" href="?{{ page_request_var }}={{ queryset.previouse_page_number }}"><i class="fas fa-angle-left mr-2"></i>Prev posts</a></div>
+                {% endif %}
+              
+                {% if queryset.has_next %}
+                <div class="col-sm-6 text-center text-sm-right text-right"><a class="btn btn-outline-secondary btn-sm" href="?{{ page_request_var }}={{ queryset.next_page_number }}">Next posts<i class="fas fa-angle-right ml-2"></i></a></div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <!-- Sidebar -->
+          {% comment %} {% include 'jobs/included/rightsidebar.html' %} {% endcomment %}
+          
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

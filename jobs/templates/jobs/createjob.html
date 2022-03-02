@@ -8,12 +8,12 @@
 
 <div class='container justify-content-center mb-5 mt-5'>
 <div class='mt-5 mb-5 text-center'  >
-<h3> {{title}} YOUR JOB listing </h3>
+<h3> {{title}}  JOB /{{user.username}}</h3>
 </br>
 <hr>
 </div>
 
-
+{{ form.media}}
 <form method = "POST" action="." enctype="multipart/form-data">
   {% csrf_token %}
    {% comment %} {{form.as_p|as_crispy_field}} {% endcomment %}

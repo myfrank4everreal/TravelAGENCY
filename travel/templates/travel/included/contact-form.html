@@ -1,24 +1,35 @@
 
 {% load static %}
 
-<form>
+<form action='.' method='post'>
+  {% csrf_token %}
 <div class="input-group mb-3">
   
-  <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+  {{contactform.name}}
+  {% comment %} <input type="text" name='name' class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1"> {% endcomment %}
 </div>
 
 <div class="input-group mb-3">
-  <input type="email" class="form-control" placeholder="email" aria-label="Username">
+  {{contactform.email}}
+
+  {% comment %} <input type="email" name = 'email' class="form-control" placeholder="email" aria-label="Username"> {% endcomment %}
   
 </div>
 
 <div class="input-group">
   <span class="input-group-text">Enter your message</span>
-  <textarea class="form-control" aria-label="With textarea"></textarea>
+  {{contactform.message}}
+
+  {% comment %} <textarea class="form-control" name='message' aria-label="With textarea"></textarea> {% endcomment %}
 </div>
 
 <div class="input-group mb-3 mt-3 text-center">
    <input type='submit' class= "btn btn-primary btn-block destination-btn text-white " placeholder="Submit">  
+</div>
+<div class="input-group mb-3 mt-3 text-center">
+  {% for message in messages %}
+    <p>{{message}}</p>
+  {% endfor %}
 </div>
 <form>
 

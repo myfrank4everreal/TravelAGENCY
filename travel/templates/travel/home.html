@@ -2,13 +2,18 @@
 {% load static %}
 
 
+
+{% block banner-section %}
+{% include 'travel/included/headerbanner.html' %}
+{% endblock %}
+
+
+
 {% block content %}
-
-
 {% comment %}  {% endcomment %}
 
 {% comment %} header banner category {% endcomment %}
-{% include 'travel/included/headerbanner.html' %}
+
 
  {% comment %} the travel skyscanner flight booking  {% endcomment %}
  {% include 'travel/included/skyscanerfreewidget.html' %}

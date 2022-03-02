@@ -2,21 +2,23 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
+{% block banner-section %}
+<section class="hero bg-center bg-cover" style="background: url({% static 'travelsite/img/hero-banner.jpg' %})">
+  <div class="dark-overlay py-5">
+    <div class="overlay-content">
+      <div class="container py-5 text-white text-center">
+        <h1>Service Title</h1>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
 
 {% block content %}
 
 
-<section class="hero bg-center bg-cover" style="background: url({% static 'travelsite/img/hero-banner.jpg' %})">
-      <div class="dark-overlay py-5">
-        <div class="overlay-content">
-          <div class="container py-5 text-white text-center">
-            <h1>Service Title</h1>
-            <p></p>
-          </div>
-        </div>
-      </div>
-    </section>
+
     <!-- Blog listing -->
     <section class="pt-5">
       <div class="container pt-5">

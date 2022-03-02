@@ -3,17 +3,25 @@
 
 
 {% block content %}
+
+
     <section class="py-5">
       <div class="container text-center">
+        {% if post.hide_company_name == True %}
+          <h5>Company name</h5>  <h1>Confidential</h1>
+        {% else %}
         <h4>{{post.company_name}}</h4>
+        {% endif %}
+
 
         <p class="h6 mb-0 text-uppercase text-primary">{{post.post_date}}</p>
-        <h1>{{post.job_title}}</h1>
+        
+        <h5>Job position</h5><h1>{{post.job_title}}</h1>
         <p class="mb-3">{{post.shotend_desc}}</p>
         <ul class="list-inline small text-uppercase mb-0">
-          <li class="list-inline-item align-middle"><img class="rounded-circle shadow-sm" src="{{post.user.profile_pic.url}}" alt="" width="40"/></li>
+          <li class="list-inline-item align-middle"><img class="rounded-circle shadow-sm" src="{{post.job_admin.profile_pic.url}}" alt="" width="40"/></li>
           <li class="list-inline-item mr-0 text-muted align-middle">By </li>
-          <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.company_name }}</a></li>
+          <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.job_admin.user.username}}</a></li>
           {% comment %} <li class="list-inline-item text-muted align-middle mr-0">|</li>
           <li class="list-inline-item text-muted align-middle mr-0">post</li>
           <li class="list-inline-item text-muted align-middle mr-0">|</li>
@@ -31,17 +39,45 @@
                     {% comment %} <img src="..." class="card-img-top" alt="..."> {% endcomment %}
                     <div class="card-body">
                     
-                     <span> <p class="card-title text-bold"><span><h5>location:  </h5></span>{{post.locations }} | {{Post.country }}</span>
+                     <span> <p class="card-title text-bold"><span><h5>location:  </h5></span>{{post.location}} | {{post.city.name }}</span>
                       <div>
-                       <h5 class="text-center color-gold"> Description</h5>
+                       <h5 class="text-left color-gold"> Description</h5>
                       <p class="card-text">{{post.job_description }}</p>
                       </div>
                     </div>
                     <ul class="list-group list-group-flush">
                       <div>
                         <li class="list-group-item">
-                        <span>Salary : </span><span>{{post.salary}} </span>
+                          <span>Gender : </span><span>{{post.gender}} </span>
+                          </li>
+                        <li class="list-group-item">
+                        <span>Educational Level: </span><span>{% for edu_level in post.educational_level.all %}{{edu_level.title}}{% endfor %} </span>
                         </li>
+                        <li class="list-group-item">
+                          <span>Career Level : </span><span>
+                            {% for careeritem in post.career_level.all %}
+                            {{careeritem}} </span>
+                            {% endfor %}
+                          </li>
+                          <li class="list-group-item">
+                            <span>Required Nationality : </span><span>{% for country in post.nationality %}{{country.name}} {% endfor %}</span>
+                          </li>
+                          <li class="list-group-item">
+                            <span>Employment Type: </span><span>{{post.employment_type.title}} </span>
+                          </li>
+                          <li class="list-group-item">
+                            <span>Monthly Salary: </span><span>
+                              {% for salary in post.monthly_salary.all %}
+                              {{salary.amount}} </span>
+                              {% endfor %}
+                          </li>
+                          <li class="list-group-item">
+                            <span>Cv required : </span><span>{{post.cv_required}} </span>
+                          </li>
+                          <li class="list-group-item">
+                            <span>Job Admin : </span><span>{{post.job_admin.user.username}} </span>
+                          </li>
+                          
                       </div>
                       
                       <div>
@@ -51,14 +87,17 @@
                       </div>
                       
                     </ul>
-                    <div class="card-body">
+                    {% comment %} <div class="card-body">
                       <a href="{{post.application_link}}" class="card-link">Apply here</a>
-                      {% comment %} <a href="#" class="card-link">Another link</a> {% endcomment %}
-                    </div>
+                      
+                    </div> {% endcomment %}
                   </div>
                  </div>
            
             <div>
+                      <div>
+                        <a href="{{post.application_link}}" class="btn btn-primary btn-block destination-btn text-white "><button>Apply here</button></a>
+                      </div>
             {{post.more_detail|safe}}
             <div class="mb-5 text-center"><img class="mb-3 rounded-circle img-thumbnail shadow-sm" src="" alt="" width="110">
               <h3 class="h4"></h3>
@@ -147,79 +186,7 @@
               {% endfor %}
             </ul>
           </div>
-          <div class="col-lg-4">
-            <!-- About me widget -->
-            <div class="mb-5 text-center"><img class="mb-3 rounded-circle img-thumbnail shadow-sm" src="img/author.jpg" alt="" width="110">
-              <h3 class="h4">Join us</h3>
-              <p class="text-small text-muted px-sm-4"> presic travels and tours global consult</p><img class="d-block mx-auto mb-3" src="img/signature.png' %}" alt="" width="60">
-              <ul class="list-inline text-small mb-0">
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-instagram"></i></a></li>
-                
-              </ul>
-            </div>
-            <!-- Categories widget -->
-             <div class="mb-5 text-center"><a class="category reset-anchor bg-cover bg-center mb-2" href="#" style="background: url({% static 'travelsite/img/category-1.jpg' %})">
-                <p class="category-title text-uppercase small">Lifestyle</p></a><a class="category reset-anchor bg-cover bg-center mb-2" href="#" style="background: url({% static 'travelsite/img/category-1.jpg' %})">
-                <p class="category-title text-uppercase small">Travel</p></a><a class="category reset-anchor bg-cover bg-center" href="#" style="background: url({% static 'travelsite/img/category-3.jpg' %})">
-                <p class="category-title text-uppercase small">Jobs</p></a></div>
-            <!-- Newsletter widget -->
-            <div class="px-4 py-5 bg-light mb-5 text-center">
-              <h3 class="h5"><i class="far fa-envelope mr-2"></i>Join the family</h3>
-              <p class="text-small text-muted"> </p>
-              <form action="." method = "POST">
-              {% csrf_token %}
-                <div class="form-group mb-1">
-                  <input class="form-control form-control-sm" type="email" name="email" placeholder="Emaill address">
-                </div>
-                <div class="form-group mb-0">
-                  <button class="btn btn-dark btn-block btn-sm" type="submit">Subscribe</button>
-                </div>
-              </form>
-            </div>
-            <!-- Latest posts widget -->
-            <div class="mb-5">
-              <h3 class="h5">Latest posts</h3>
-              
-              <p class="text-small text-muted mb-4"></p>
-              <ul class="list-unstyled">
-                <li class="media mb-1"><a href="post.html"><img src="{{post.image.url}}" alt="" width="80"></a>
-                  <div class="media-body ml-3">
-                    <p class="small text-primary text-uppercase mb-0">ps</p>
-                    <h6 class="mb-1"><a class="reset-anchor" href="post.html">post title</a></h6>
-                    <p class="small text-muted">post detail</p>
-                  </div>
-                </li>
-               
-              </ul>
-              
-            </div>
-            <!-- Instagram widget -->
-            <div class="mb-5">
-              {% comment %} <h3 class="h5">Follow on Instagram</h3>
-              <p class="text-small text-muted"></p>
-              <div class="row px-3">
-                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
-                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-1.jpg' %}" alt=""></div></a></div>
-                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
-                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-2.jpg' %}" alt=""></div></a></div>
-                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
-                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-3.jpg' %}" alt=""></div></a></div>
-                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
-                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-4.jpg' %}" alt=""></div></a></div>
-                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
-                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-5.jpg' %}" alt=""></div></a></div>
-                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
-                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-6.jpg' %}" alt=""></div></a></div>
-                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
-                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-8.jpg' %}" alt=""></div></a></div>
-                <div class="col-3 px-0"><a class="instagram-item overlay-hover-dark-sm d-block w-100" href="#">
-                    <div class="overlay-content"><img class="img-fluid" src="{% static 'travelsite/img/instagram-1.jpg' %}" alt=""></div></a></div>
-              </div> {% endcomment %}
-              <div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>

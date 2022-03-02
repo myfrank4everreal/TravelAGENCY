@@ -100,47 +100,23 @@
                 <li class="list-inline-item"><a class="reset-anchor" href="https://api.whatsapp.com/send?phone=971586537619"><i class="fab fa-whatsapp"></i></a></li>
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-instagram"></i></a></li> {% endcomment %}
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li> {% endcomment %}
-                <li class="list-inline-item"><a class="reset-anchor" href="mailto:presictravels@gmail.com"><i class="fab fa-email"></i>presictravels@gmail.com</a></li>
-                {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-youtube"></i></a></li> {% endcomment %}
+                <li class="list-inline-item "><a class="reset-anchor" href="mailto:presictravels@gmail.com"><i class="fab fa-email"></i>presictravels@gmail.com</a></li>
+                {% if request.user.is_authenticated %}
+
+                {% else %}
+                <li class="list-inline-item "><a class="reset-anchor" href="{% url 'login' %}"><h6>login</h6></a></li> 
+                <li class="list-inline-item " ><a class="reset-anchor" href="#"><h6>post job</h6></a></li> 
+                {% endif %}
+                {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-youtube"></i></a></li>  {% endcomment %}
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li> {% endcomment %}
               </ul>
             </div>
 
+            
+
             {% comment %} the user profile {% endcomment %}
             
-      
-        {% comment %} ends here {% endcomment %}
-            <div class="col-lg-4   text-right">
-            {% comment %} this will be seen if youser is authenticated and authorized{% endcomment %}
-            {% if user.is_authenticated %}
-              <ul class="navbar-nav ml-auto ml-md-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="{% url 'travel:dashboard' %}">Dashboard</a>
-                        <a class="dropdown-item" href="#">profile</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
-                    </div>
-                </li>
-            </ul>
-          {% else %}
-          <ul class="navbar-nav ml-auto ml-md-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href=""></a>
-                        <a class="dropdown-item" href=""></a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'account_login' %}">Login to post</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{%url 'account_signup'  %}">signup</a>
-
-                    </div>
-                </li>
-            </ul>
-            {% endif %}
-            </div>
+     
           </div>
         </div>
       </div>
@@ -181,10 +157,23 @@
           </div>
         </div>
       </nav>
+      
      
     </header>
     <!-- Destinations -->
+
+{% block banner-section %}
+
+{% endblock %}
+
+{% if request.user.is_authenticated %}
+{% include 'included/user_navbar.html' %}
+{% else %}
+
+{% endif %}
+
 {% block content %}
+
 
 
 {% endblock %}

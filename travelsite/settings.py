@@ -15,6 +15,11 @@ import django_heroku
 import dj_database_url
 from decouple import config
 
+
+# For the environment variable
+from dotenv import load_dotenv
+load_dotenv()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,10 +28,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'pb014p02__a7b47nycoh(*ve5bd#(9yq*5b(x*xi=gm6oxt6yv'
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['https://travel-agent-visa.herokuapp.com/', '127.0.0.1']
 
@@ -38,6 +44,7 @@ INSTALLED_APPS = [
     'travelblog',
     'jobs',
     'marketing',
+    'accounts',
     'tinymce',
     'ckeditor',
     'crispy_forms',
@@ -50,11 +57,11 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     # AWS app
     'storages',
-
     # authentication apps
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'django_countries',
 ]
 
 # for the crispy-form
@@ -109,13 +116,15 @@ WSGI_APPLICATION = 'travelsite.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+database_USER= os.environ.get('USER')
+database_PASSWORD = os.environ.get('PASSWORD')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd1h9nd6l47785o',
-        'USER': 'zypcqdvezxqhup',
-        'PASSWORD': 'c9df2480c122369cb1d4bb738a11410296915ffbce4c9211eab424448e4d496f',
-        'HOST': 'ec2-184-72-162-198.compute-1.amazonaws.com'
+        'NAME': 'd5j8gbnfmt7lv8',
+        'USER': '{}'.format(database_USER),
+        'PASSWORD': '{}'.format(database_PASSWORD),
+        'HOST': 'ec2-3-212-90-231.compute-1.amazonaws.com'
     }
 }
 
@@ -161,7 +170,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles'),
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'travelsite/static'),
     os.path.join(BASE_DIR, 'travel/static'),
@@ -179,9 +190,9 @@ django_heroku.settings(locals())
 # to redirect user to the dashboard after login
 LOGIN_REDIRECT_URL= 'travel:dashboard'
 
-AWS_ACCESS_KEY_ID = "AKIA235CREQF3JH3WM7R"
-AWS_SECRET_ACCESS_KEY = "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"
-AWS_STORAGE_BUCKET_NAME  = "travelsite-franklymade-bucket"
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME  = os.environ.get('AWS_STORAGE_BUCKET_NAME ')
 
 # for django storages settings
 
@@ -233,3 +244,5 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',    
 ]
 SITE_ID = 1
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

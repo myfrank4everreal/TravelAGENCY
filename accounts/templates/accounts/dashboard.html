@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block banner-section %}
+<section class="hero bg-center bg-cover" style="background: url({% static 'travelsite/img/myhero-banner2.png' %})">
+    <div class="dark-overlay py-5">
+      <div class="overlay-content">
+        <div class="container py-5 text-white text-center">
+           
+            
+          <h1>Dashboard</h1><h4>{{user.username}}<h4>
+          
+
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock%}
+
+{% block content %}
+
+<div class="container my-5">
+
+    <!-- Section: Components -->
+    <section class="">
+      <section id="demo" class="">
+        <h3 class="text-center"><strong>Demo</strong></h3>
+          <div class="text-center">
+            <a class="btn btn-outline-light" href="https://mdbootstrap.com/freebies/dark-theme/" target="_blank" role="button">Download dark theme</a>
+        </div>
+  
+        <hr class="my-5" />
+ 
+        <!--Section: Tables-->
+
+        <section>
+          <div class="text-center">
+            <h2><strong>Your posts</strong></h2>
+
+            <a class="btn btn-primary mb-5 text-white" href="{% url 'make-job' %}" role="button">Post Job</a>
+            
+          </div>
+             {% for post in job_admin_post %}
+             {{ post }}
+             {% endfor %}
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Job Posts</th>
+                <th scope="col">Post date</th>
+                <th scope="col">update</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for job in admin_job %}
+              <tr>
+                <th scope="row">1</th>
+                <td>{{job.job_title}}</td>
+                <td>{{job.post_date}}</td>
+                <td><a href='{{job.get_update_url}}'>udatepost</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </section>
+        <!--Section: Tables-->
+  
+             <!--Section: Shadows-->
+      </section>
+    </section>
+    <!-- Section: Components -->
+  
+  </div>
+
+
+
+{% for category in cat %}
+{{categroy.title}}
+{% endfor %}
+{% endblock %}

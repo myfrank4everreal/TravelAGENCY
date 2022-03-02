@@ -82,7 +82,7 @@ def blogView(request):
 
 
 def blogDetail(request, id):
-    most_recent = Blog.objects.order_by('-timestamp')[:3]
+    most_recent = Blog.objects.order_by('-post_date')[:3]
     post = get_object_or_404(Blog, id=id)
     
     # lets handle enernimouse user authentication error

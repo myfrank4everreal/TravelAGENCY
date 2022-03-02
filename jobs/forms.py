@@ -4,57 +4,34 @@ from django.forms import TextInput
 from crispy_forms.helper import FormHelper
 
 
-from .models import JobPost
+from .models import Jobs
 
-from tinymce import TinyMCE
+# from tinymce import TinyMCE
 
 
-class TinyMCEWidget(TinyMCE):
-    def use_required_attribute(self, *args):
-        return False
+# class TinyMCEWidget(TinyMCE):
+#     def use_required_attribute(self, *args):
+#         return False
 
 
 class JobListForm(forms.ModelForm):
-    more_detail = forms.CharField(
-        widget=TinyMCEWidget(
-            attrs={'required': False, 'cols':30, 'rows':10}
-        )
-    )
+    
 
-    def __init__(self, *args, **kwargs):
-        super(JobListForm, self).__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.form_show_labels = False 
+    # def __init__(self, *args, **kwargs):
+    #     super(JobListForm, self).__init__(*args, **kwargs)
+    #     self.helper = FormHelper()
+    #     self.helper.form_show_labels = False 
 
     class Meta:
-        model = JobPost
+        model = Jobs
         # select the field we need in the create form
 
-        fields = [
-            'job_title', 
-            'job_description',
-            'requirements',
-            'category',
-            # 'job_admin_name',
-            'country',
-            'locations',
-            'company_name',
-            'more_detail',
-        ]
+        fields = ['application_link', 'company_name',\
+            'company_logo', 'hide_company_name', 'job_title',\
+                'job_description', 'gender', 'location', 'nationality',\
+                    'career_level', 'employment_type', 'remote', \
+                        'years_of_experience', 'educational_level', 'skill_set1', \
+                            'skill_set2', 'skill_set3', 'cv_required', \
+                                'category', 'city']
 
 
-        
-
-#  class="form-control" name="message" rows="5" placeholder="Leave your message"
-# class CommentForm(forms.ModelForm):
-#     comment = forms.CharField(widget=forms.Textarea(attrs={
-#         'class':'form-control',
-#         "name":"message",
-#         "rows":"5",
-#         "placeholder":"Leave your message"
-#     }))
-#     class Meta:
-#         model = Comment
-#         fields = ['comment']
-
-        
