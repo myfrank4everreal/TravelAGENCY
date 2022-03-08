@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'accounts',
     'tinymce',
     
-    'ckeditor',
+    # 'ckeditor',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     # AWS app
-    'storages',
+    # 'storages',
     # authentication apps
     'allauth',
     'allauth.account',
