@@ -22,15 +22,18 @@ from travelblog.views import blogView, blogDetail, search, post_delete, post_cre
 from jobs.views import jobView, jobDetail, updateJob, cityjob, catjobs, createJob
 
 from accounts.views import dashbaord
+from filebrowser.sites import site
 
 
 
 
 
 urlpatterns = [
+    path('admin/filebrowser/', site.urls),
     path('admin/', admin.site.urls),
     path('', include('travel.urls', namespace="travel")),
     path('tinymce/', include('tinymce.urls')),
+    
     path('search/', search, name= 'search' ),
     
     
@@ -61,5 +64,7 @@ urlpatterns = [
     
 ]
 
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL , document_root = settings.STATIC_ROOT )
+    urlpatterns += static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT )
 
-urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

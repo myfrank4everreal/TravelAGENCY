@@ -102,6 +102,11 @@
                 <div class='text-center mb-2' >
                     <p>Already have an account <a href="{% url 'login' %}">login</a>
                 </div>
+                <div> 
+                  {% for message in messages %}
+                    {{message}}
+                  {% endfor %}
+                </div>
                 
               </form>
             </div>

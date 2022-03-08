@@ -1,12 +1,15 @@
+from tokenize import group
+from django.http import HttpResponse
 from django.urls import reverse
 from django.shortcuts import get_object_or_404, render, redirect
 from .forms import RegistrationForm
 from jobs.models import JobCategory,Jobs, JobAdmin
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib import messages
 
+from .decorators import allowed_users, authenticated_user
 
 # Create your views here.
 
@@ -15,9 +18,15 @@ def register_user(request):
     if request.method == "POST":
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('dashboard')
-    
+            user = form.save()
+            print(dir(user))
+            group = Group.objects.get(name='jobadmin')
+            print('this is the group :', group)
+            user.groups.add(group) 
+                  
+
+            return redirect('login')
+
     context = {'form':form}
     return render(request, 'accounts/register.html', context)
 
@@ -45,20 +54,14 @@ def logout_user(request):
     logout(request)
     return redirect('job')
 
-@login_required
+@login_required(login_url='login')
+@allowed_users(allowed_roles=['jobadmin'])
 def dashbaord(request):
-    user = request.user
-    # print('this is the user dir %s '%dir(user))
-    print(f" this is the first name : {user}")
-    job_admin_users = JobAdmin.objects.all()
-    
-    for job_admin in job_admin_users:
-        print(f'this is the job_admi: {job_admin}')
-        if not user == job_admin:
-            return redirect('job')
-            
-        else:
-            admin_job = request.user.jobadmin.jobs_set.all()
+   
+    try:
+        admin_job = request.user.jobadmin.jobs_set.all()
+    except:
+        return render(request, 'accounts/newuser.html')
             
     context = {'admin_job':admin_job}
     return render(request, 'accounts/dashboard.html', context)

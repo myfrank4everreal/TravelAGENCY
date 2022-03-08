@@ -40,12 +40,14 @@ ALLOWED_HOSTS = ['https://travel-agent-visa.herokuapp.com/', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'filebrowser',
     'travel',
     'travelblog',
     'jobs',
     'marketing',
     'accounts',
     'tinymce',
+    
     'ckeditor',
     'crispy_forms',
     'django.contrib.admin',
@@ -132,6 +134,39 @@ DATABASES = {
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
+# this is for tinyMCE Configuration
+TINYMCE_DEFAULT_CONFIG = {
+    # 'height': 360,
+    # 'width': 1120,
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'theme': 'modern',
+    'plugins': '''
+            textcolor save link image media preview codesample contextmenu
+            table code lists fullscreen  insertdatetime  nonbreaking
+            contextmenu directionality searchreplace wordcount visualblocks
+            visualchars code fullscreen autolink lists  charmap print  hr
+            anchor pagebreak
+            ''',
+    'toolbar1': '''
+            fullscreen preview bold italic underline | fontselect,
+            fontsizeselect  | forecolor backcolor | alignleft alignright |
+            aligncenter alignjustify | indent outdent | bullist numlist table |
+            | link image media | codesample |
+            ''',
+    'toolbar2': '''
+            visualblocks visualchars |
+            charmap hr pagebreak nonbreaking anchor |  code |
+            ''',
+    'contextmenu': 'formats | link image',
+    'menubar': True,
+    'statusbar': True,
+    }
+
+SITE_ID = 1
+
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -182,9 +217,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-django_heroku.settings(locals())
 
+
+
+FILEBROWSER_DIRECTORY = ''
+DIRECTORY = ''
 # for aw3 configuration
 
 # to redirect user to the dashboard after login
@@ -208,41 +245,17 @@ AWS_S3_REGION_NAME = 'us-east-2'
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 
-# this is for tinyMCE Configuration
-TINYMCE_DEFAULT_CONFIG = {
-    # 'height': 360,
-    # 'width': 1120,
-    'cleanup_on_startup': True,
-    'custom_undo_redo_levels': 20,
-    'selector': 'textarea',
-    'theme': 'modern',
-    'plugins': '''
-            textcolor save link image media preview codesample contextmenu
-            table code lists fullscreen  insertdatetime  nonbreaking
-            contextmenu directionality searchreplace wordcount visualblocks
-            visualchars code fullscreen autolink lists  charmap print  hr
-            anchor pagebreak
-            ''',
-    'toolbar1': '''
-            fullscreen preview bold italic underline | fontselect,
-            fontsizeselect  | forecolor backcolor | alignleft alignright |
-            aligncenter alignjustify | indent outdent | bullist numlist table |
-            | link image media | codesample |
-            ''',
-    'toolbar2': '''
-            visualblocks visualchars |
-            charmap hr pagebreak nonbreaking anchor |  code |
-            ''',
-    'contextmenu': 'formats | link image',
-    'menubar': True,
-    'statusbar': True,
-    }
+
 
 # this is for the dajango authentification
 AUTHENTICATION_BACKENDS = [   
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',    
 ]
-SITE_ID = 1
+
+
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+django_heroku.settings(locals())
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

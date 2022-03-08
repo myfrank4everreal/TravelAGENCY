@@ -7,6 +7,7 @@ from django.db.models.query import QuerySet
 from django.db.models import Q
 from django.urls.base import reverse
 from django.core.checks import messages
+from django.db.models import Q
 
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -16,6 +17,26 @@ from django.contrib.auth.decorators import login_required, permission_required
 
 
 
+
+
+
+
+
+
+def searchjob(request):
+    queryset = Jobs.objects.all()
+    query = request.GET.get('q')
+    if query:
+        queryset = queryset.filter(
+            Q(job_title__icontains=query) |
+            Q(job_description__icontains=query)
+        ).distinct()
+    context={
+        'queryset':queryset
+    }
+    return render(request, 'jobs/search_result.html', context)
+    
+    
 
 def createJobAdmin(user):
     jobadmin = JobAdmin.create(user=user)

@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.db.models.deletion import CASCADE
@@ -5,8 +6,8 @@ from django.urls import reverse
 
 # for tynymce
 
-# from tinymce import HTMLField
-from ckeditor.fields import RichTextField
+from tinymce import HTMLField
+# from ckeditor.fields import RichTextField
 
 
 
@@ -57,7 +58,7 @@ class Category(models.Model):
 
 class Blog(models.Model):
     title = models.CharField(max_length=200)
-    detail = models.TextField()
+    description = models.TextField(blank=True, null=True)
     counter = models.IntegerField(default=0)
     # comment_count = models.IntegerField(default=0)
     # view_count = models.IntegerField(default=0)
@@ -67,8 +68,8 @@ class Blog(models.Model):
     category = models.ManyToManyField(Category)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     # for the tinymce
-    # content = HTMLField('Content')
-    richcontent = RichTextField(blank=True, null=True)
+    detail_content = HTMLField('Content')
+    # richcontent = RichTextField(blank=True, null=True)
 
     
 
@@ -76,7 +77,7 @@ class Blog(models.Model):
         return self.title
     
     def shotend_desc(self):
-        return self.detail[:200] + '...'
+        return self.description[:200] + '...'
 
 
     def get_absolute_url(self):

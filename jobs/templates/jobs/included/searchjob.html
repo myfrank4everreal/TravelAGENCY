@@ -1,0 +1,13 @@
+
+
+<div class='container flight-custom-card'> 
+    <div class="mb-3 text-center">
+    <form method='post' action="{% url 'job-search' %}">
+         {% csrf_token %}
+      <label for="exampleFormControlInput1" class="form-label">Search for job</label>
+      <input type="text" name='q' class="form-control" id="exampleFormControlInput1" placeholder=" search by : Skill, title, city">
+      {% comment %} <input class="btn-primary text-white mt-4 mb-1" type="submit"> {% endcomment %}
+    </form>
+    </div>
+
+  </div>

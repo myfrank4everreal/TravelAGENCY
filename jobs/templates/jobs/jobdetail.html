@@ -48,7 +48,15 @@
                     <ul class="list-group list-group-flush">
                       <div>
                         <li class="list-group-item">
-                          <span>Gender : </span><span>{{post.gender}} </span>
+                          {% if post.gender == True %}
+                          <span>Gender : </span><span> Male</span>
+                          {% elif post.gender == False %}
+                          <span>Gender : </span><span> Female</span>
+                          {% elif post.gender == any %}
+
+                          <span>Gender : </span><span> Any</span>
+                          
+                          {% endif %}
                           </li>
                         <li class="list-group-item">
                         <span>Educational Level: </span><span>{% for edu_level in post.educational_level.all %}{{edu_level.title}}{% endfor %} </span>

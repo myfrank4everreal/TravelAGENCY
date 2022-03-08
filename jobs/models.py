@@ -119,14 +119,11 @@ class Jobs(models.Model):
     # content = HTMLField('Content')
     # more_detail = RichTextField(blank=True, null=True)
     
-    
-    
-
-    
     def __str__(self):
         return self.job_title
     
-    
+    def get_gender(self):
+        return self.Jobs.gender
 
     def shotend_desc(self):
         return self.job_description[:100] + '...'

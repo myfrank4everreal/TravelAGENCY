@@ -160,4 +160,4 @@ def post_delete(request, id):
 
 
 def dashboard(request):
-    author = get_author(request.user)
+    pass

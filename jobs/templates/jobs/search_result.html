@@ -1,0 +1,77 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block banner-section %}
+<section class="hero bg-center bg-cover" style="background: url({% static 'travelsite/img/myhero-banner2.png' %})">
+  <div class="dark-overlay py-5">
+    {% comment %} <div class="overlay-content"> {% endcomment %}
+      <div class="container py-5 text-white text-center">
+        <h1>Jobs</h1>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+
+
+    <!-- Blog listing -->
+    <section class="pt-5">
+      <div class="container pt-5">
+        <div class="row mb-5">
+          <div class="col-lg-10">
+            
+           
+
+             </div>
+           
+          
+          <!-- Recent job begin -->
+          <div class="py-4 ">
+            <header class="text-center mb-5 mt-5">
+              <h2>Search Result</h2>
+              {% comment %} <a href=''><p class="mb-0">view all -></p></a> {% endcomment %}
+
+            </header>
+            
+              <div class="row text-center bg-light  ">
+                  
+                {% for post in queryset %}
+                <div class="col-lg-3 col-md-10">
+                  <div class='custom-card'>
+                    <ul class="list-inline small text-uppercase mb-0">
+                      <li class="list-inline-item mr-0 text-gray align-middle">By </li>
+                      <li class="list-inline-item align-middle mr-0"><a class="font-weight-bold reset-anchor" href="#">{{post.company_name}}</a></li>
+                      
+                      <li class="list-inline-item text-gray align-middle mr-0">|</li>
+                      <li class="list-inline-item text-gray align-middle">{{post.post_date|timesince}} ago</li>
+                    </ul>
+                      <a class="text-reset text-decoration-none" href="">
+                      <img class="mb-4" src="{% static 'travelsite/img/bag' %}" alt="" height="150">
+                      <h3 class="h5">{{post.job_title}}</h3>
+                      <p class="text-small text-muted">{{post.shotend_desc}}</p></a>
+                      <div>
+                        <a href="{{post.get_absolute_url}}"><button>View Job</button></a>
+                      </div>
+                    </div>
+                </div>
+                {% endfor %}
+              </div> 
+            </div>
+          </div>
+          <!-- resent job end -->
+
+
+          
+          <!-- Sidebar -->
+          {% comment %} {% include 'jobs/included/rightsidebar.html' %} {% endcomment %}
+          
+        </div>
+      </div>
+    </section>
+
+
+{% endblock %}
