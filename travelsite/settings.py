@@ -225,7 +225,7 @@ DIRECTORY = ''
 # for aw3 configuration
 
 # to redirect user to the dashboard after login
-LOGIN_REDIRECT_URL= 'travel:dashboard'
+# LOGIN_REDIRECT_URL= 'travel:dashboard'
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
