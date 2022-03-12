@@ -15,6 +15,7 @@ import django_heroku
 import dj_database_url
 from decouple import config
 
+# for the filebrowser attribute error fix
 
 # For the environment variable
 from dotenv import load_dotenv
@@ -48,7 +49,7 @@ INSTALLED_APPS = [
     'accounts',
     'tinymce',
     
-    # 'ckeditor',
+    'ckeditor',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -58,7 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     # AWS app
-    # 'storages',
+    'storages',
     # authentication apps
     'allauth',
     'allauth.account',
@@ -72,7 +73,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 MIDDLEWARE = [
-     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

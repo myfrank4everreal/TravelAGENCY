@@ -7,9 +7,7 @@ from django.urls import reverse
 # for tynymce
 
 from tinymce import HTMLField
-# from ckeditor.fields import RichTextField
-
-
+from ckeditor.fields import RichTextField
 
 
 User = get_user_model()
@@ -25,8 +23,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.user.username
-
-
 
 
   # to handdle the view count we a postview class
@@ -68,8 +64,8 @@ class Blog(models.Model):
     category = models.ManyToManyField(Category)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     # for the tinymce
-    detail_content = HTMLField('Content')
-    # richcontent = RichTextField(blank=True, null=True)
+    # detail_content = HTMLField('Content')
+    richcontent = RichTextField(blank=True, null=True)
 
     
 

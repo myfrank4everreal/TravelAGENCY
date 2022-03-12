@@ -29,10 +29,12 @@ from filebrowser.sites import site
 
 
 urlpatterns = [
-    path('admin/filebrowser/', site.urls),
+    # path('admin/filebrowser/', site.urls),
     path('admin/', admin.site.urls),
-    path('', include('travel.urls', namespace="travel")),
+    
+    
     path('tinymce/', include('tinymce.urls')),
+    path('', include('travel.urls', namespace="travel")),
     
     path('search/', search, name= 'search' ),
     

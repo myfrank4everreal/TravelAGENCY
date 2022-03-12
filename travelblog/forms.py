@@ -30,7 +30,7 @@ class BlogForm(forms.ModelForm):
         model = Blog
         # select the field we need in the create form
 
-        fields = ['title', 'description', 'detail_content', 'image', 'category', 'featuredpost']
+        fields = ['title', 'description', 'richcontent', 'image', 'category', 'featuredpost']
 
 
         
