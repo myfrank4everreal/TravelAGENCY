@@ -34,7 +34,7 @@ urlpatterns = [
     
     
     path('tinymce/', include('tinymce.urls')),
-    path('', include('travel.urls', namespace="travel")),
+    path('', include('travel.urls', name="travel")),
     
     path('search/', search, name= 'search' ),
     
