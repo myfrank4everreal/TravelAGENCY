@@ -41,13 +41,15 @@ ALLOWED_HOSTS = ['http://presictravels.herokuapp.com/', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'filebrowser',
     'travel',
+    'tinymce',
+    # 'sorl.thumbnail',
+    # 'filebrowser',
+    
     'travelblog',
     'jobs',
     'marketing',
     'accounts',
-    'tinymce',
     
     'ckeditor',
     'crispy_forms',
@@ -66,6 +68,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'django_countries',
 ]
+
+# for tinymce change tinymce config to work with filebrowser
+
+
 
 # for the crispy-form
 # CRISPY_TEMPLATE_PACK = 'boostrap4'
@@ -119,6 +125,8 @@ WSGI_APPLICATION = 'travelsite.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+
+
 database_USER= os.environ.get('USER')
 database_PASSWORD = os.environ.get('PASSWORD')
 DATABASES = {
@@ -217,10 +225,6 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
-
-
-
 FILEBROWSER_DIRECTORY = ''
 DIRECTORY = ''
 # for aw3 configuration
@@ -245,16 +249,11 @@ AWS_S3_REGION_NAME = 'us-east-2'
 
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 
-
-
-
 # this is for the dajango authentification
 AUTHENTICATION_BACKENDS = [   
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',    
 ]
-
-
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 django_heroku.settings(locals())

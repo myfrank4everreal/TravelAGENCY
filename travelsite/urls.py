@@ -24,17 +24,15 @@ from jobs.views import jobView, jobDetail, updateJob, cityjob, catjobs, createJo
 from accounts.views import dashbaord
 from filebrowser.sites import site
 
-
-
-
-
 urlpatterns = [
     # path('admin/filebrowser/', site.urls),
     path('admin/', admin.site.urls),
     
+    # path('mce_filebrowser/', include('mce_filebrowser.urls')),
     
-    path('tinymce/', include('tinymce.urls')),
     path('', include('travel.urls', namespace="travel")),
+    path('tinymce/', include('tinymce.urls')),
+    
     
     path('search/', search, name= 'search' ),
     
@@ -52,7 +50,7 @@ urlpatterns = [
 
 
     # for the  blog 
-    # path('blog/', include('travelblog.urls')),
+    path('blog/', include('travelblog.urls')),
     path('blog/', blogView, name='blog'),
     path('blog/<id>/', blogDetail, name='post_detail'),
     path('create-blog/', post_create, name='post-create'),

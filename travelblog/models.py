@@ -6,7 +6,7 @@ from django.urls import reverse
 
 # for tynymce
 
-from tinymce import HTMLField
+from tinymce.models import HTMLField
 from ckeditor.fields import RichTextField
 
 
@@ -64,8 +64,8 @@ class Blog(models.Model):
     category = models.ManyToManyField(Category)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     # for the tinymce
-    # detail_content = HTMLField('Content')
-    richcontent = RichTextField(blank=True, null=True)
+    detail_content = HTMLField('Content')
+    # richcontent = RichTextField(blank=True, null=True)
 
     
 
