@@ -4,7 +4,7 @@
 
 {% block content %}
 
-{{ form.media }}
+
 
 <div class='container justify-content-center mb-5 mt-5'>
 
@@ -16,16 +16,17 @@
 <form method = "POST" action="." enctype="multipart/form-data">
   {% csrf_token %}
    {% comment %} {{form.as_p|as_crispy_field}} {% endcomment %}
+   {{ form.media }}
    {{form|crispy}}
 
 
-  <button class="btn btn-primary" style="width:100%; margin-top:50px;" type='submit'>submit</button>
+  <button class="btn btn-primary text-white" style="width:100%; margin-top:50px;" type='submit'>submit</button>
         <div class="mb-5 text-center"><img class="mb-3 rounded-circle img-thumbnail shadow-sm" src="" alt="" width="110">
               <h3 class="h4"></h3>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><button class=" btn btn-primary fab fa-new">Create New</button></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><button class=" btn btn-primary fab fa-create">Edit Post</button></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><button class=" btn btn-primary fab fa-delete">Delete Post</button></a></li>
-                <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                <li class="list-inline-item"><a class="reset-anchor text-white" href="#"><button class=" btn btn-primary fab fa-new">Create New</button></a></li>
+                <li class="list-inline-item"><a class="reset-anchor text-white" href="#"><button class=" btn btn-primary fab fa-create">Edit Post</button></a></li>
+                <li class="list-inline-item"><a class="reset-anchor text-white" href="#"><button class=" btn btn-primary fab fa-delete">Delete Post</button></a></li>
+                <li class="list-inline-item"><a class="reset-anchor text-white" href="#"><i class="fab fa-vimeo-v"></i></a></li>
               </ul>
             </div>
   {% if err_msg %}

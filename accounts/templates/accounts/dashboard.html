@@ -66,6 +66,45 @@
             </tbody>
           </table>
         </section>
+ <hr>
+ <br>
+        <!-- post blog -->
+    {% if request.user.author %}
+        <section>
+          <div class="text-center mb-5 mt-5">
+            {% comment %} <h2><strong>Your posts</strong></h2> {% endcomment %}
+
+            
+          </div>
+             {% for post in job_admin_post %}
+             {{ post }}
+             {% endfor %}
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Blog Posts</th>
+                <th scope="col">Post date</th>
+                <th scope="col">update post</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for job in admin_job %}
+              <tr>
+                <th scope="row">1</th>
+                <td>{{job.job_title}}</td>
+                <td>{{job.post_date}}</td>
+                <td><a href='{{job.get_update_url}}'>udatepost</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+          <a class="btn btn-primary mb-5 text-center text-white" href="{% url 'post-create' %}" role="button">Post blog</a>
+
+        </section>
+        {% endif %}
+       
         <!--Section: Tables-->
   
              <!--Section: Shadows-->

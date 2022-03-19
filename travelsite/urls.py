@@ -53,7 +53,7 @@ urlpatterns = [
     path('blog/', include('travelblog.urls')),
     path('blog/', blogView, name='blog'),
     path('blog/<id>/', blogDetail, name='post_detail'),
-    path('create-blog/', post_create, name='post-create'),
+    # path('create-blog/', post_create, name='post-create'),
     path('blog/<id>/update', updateJob, name='post-update'),
     path('blog/<id>/delete', post_delete, name='post-delete'),
     
