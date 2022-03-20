@@ -37,7 +37,7 @@
               <div class="  destinations-slider owl-carousel owl-theme  ">
                 {% for city in city_list %}
 
-                <a class="destination d-flex align-items-end bg-center bg-cover" href="{{city.get_city_url}}" style=" height:250px; background: url({% static 'travelsite/img/services_card/visa.png' %})">
+                <a class="destination d-flex align-items-end bg-center bg-cover" href="{{city.get_city_url}}" style=" height:250px; background: url({% static 'travelsite/img/services_card/utility_card.png' %})">
                   <div class=" w-100 text-center text-white index-forward has-transition">
                     <h2 class="h3 mb-4">{{city.name}}</h2>
                     {% comment %} <div class="btn btn-primary btn-block destination-btn text-white">Discover</div> {% endcomment %}
@@ -67,7 +67,7 @@
                   <div class="  destinations-slider owl-carousel owl-theme  ">
                     {% for cat in category_list %}
     
-                    <a class="destination d-flex align-items-end bg-center bg-cover" href="{{city.get_city_url}}" style=" height:250px; background: url({% static 'travelsite/img/services_card/visa.png' %})">
+                    <a class="destination d-flex align-items-end bg-center bg-cover" href="{{cat.get_category_url}}" style=" height:250px; background: url({% static 'travelsite/img/services_card/utility_card2.png' %})">
                       <div class=" w-100 text-center text-white index-forward has-transition">
                         <h2 class="h3 mb-4">{{cat.title}}</h2>
                         {% comment %} <div class="btn btn-primary btn-block destination-btn text-white">Discover</div> {% endcomment %}
@@ -101,9 +101,9 @@
 
             </header>
             
-              <div class="row text-center bg-light  ">
+              <div class="row bg-light  ">
                 {% for post in most_recent_post %}
-                <div class="col-lg-3 col-md-10">
+                <div class=" container text-center col-lg-5 col-md-10">
                   <div class='custom-card'>
                     <ul class="list-inline small text-uppercase mb-0">
                       <li class="list-inline-item mr-0 text-gray align-middle">By </li>

@@ -17,12 +17,6 @@ from django.contrib.auth.decorators import login_required, permission_required
 
 
 
-
-
-
-
-
-
 def searchjob(request):
     queryset = Jobs.objects.all()
     query = request.GET.get('q')
@@ -118,9 +112,9 @@ def cityjob(request, id):
 def catjobs(request, id):
     title = 'category'
     catobj = get_object_or_404(JobCategory, id=id)
-    cityjobs = catobj.job_set.all()
+    catjobs = catobj.jobs_set.all()
     
-    paginator = Paginator(cityjobs, 8)
+    paginator = Paginator(catjobs, 8)
     page_request_var = 'page'
     page = request.GET.get(page_request_var)
     try:
@@ -131,10 +125,11 @@ def catjobs(request, id):
         paginated_queryset = paginator.page(paginator.num_pages) 
         
     context = {
+        'catobj':catobj,
         'queryset':paginated_queryset,
         'title':title,
         }
-    return render(request, 'jobs/cityjobs.html', context)
+    return render(request, 'jobs/job_category.html', context)
 
 
 def jobDetail(request, id):

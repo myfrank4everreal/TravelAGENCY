@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.shortcuts import get_object_or_404, render, redirect
 from .forms import RegistrationForm
 from jobs.models import JobCategory,Jobs, JobAdmin
+from travelblog.models import Blog
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
@@ -23,7 +24,6 @@ def register_user(request):
             group = Group.objects.get(name='jobadmin')
             print('this is the group :', group)
             user.groups.add(group) 
-                  
 
             return redirect('login')
 
@@ -36,10 +36,7 @@ def login_user(request):
         username = request.POST['username']
         # Email = request.POST['email']
         password = request.POST['password']
-        
         user = authenticate(request, username=username, password=password)
-            
-        
         if user is not None:
             login(request, user)
             messages.success(request, 'Successfully loged in ')
@@ -57,7 +54,6 @@ def logout_user(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['jobadmin'])
 def dashbaord(request):
-   
     try:
         admin_job = request.user.jobadmin.jobs_set.all()
     except:

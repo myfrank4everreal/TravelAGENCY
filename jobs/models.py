@@ -37,10 +37,9 @@ class JobCategory(models.Model):
         return self.title   
     
     def get_category_url(self):
-        return reverse('employment-type', kwargs={id:self.id})
+        return reverse('job-cats', kwargs={"id": self.id})
 
-    
-
+   
 class CareerLevel(models.Model):
     title = models.CharField(max_length=600)
     
@@ -48,7 +47,7 @@ class CareerLevel(models.Model):
         return self.title
     
     def get_careerlevel_url(self):
-        return reverse('employment-type', kwargs={id:self.id})
+        return reverse('employment-type', kwargs={"id":self.id})
     
 class EmploymentType(models.Model):
     title = models.CharField(max_length=600)
@@ -57,7 +56,7 @@ class EmploymentType(models.Model):
         return self.title
     
     def get_employment_type_url(self):
-        return reverse('employment-type', kwargs={id:self.id})
+        return reverse('employment-type', kwargs={"id":self.id})
 
 class EducationalLevel(models.Model):
     title = models.CharField(max_length=400)
@@ -95,7 +94,7 @@ class Jobs(models.Model):
     hide_company_name = models.BooleanField()
     job_title = models.CharField(max_length=200, default=None)
     job_description = models.TextField()
-    gender = models.BooleanField(choices=((None, "Any"), (True, "male"), (False, "female")), null=True)
+    gender = models.BooleanField(choices=((None, "Any"), (True, "male"), (False, "female")), blank= True, null=True)
     
     location = models.CharField(max_length=50, blank=True, null=True)
     nationality = CountryField(multiple=True, blank=True, blank_label='optional')

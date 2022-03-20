@@ -1,0 +1,4 @@
+the create blog form is malfunctioning : 
+i am getting a duplicate richcontent field
+
+for now i have to update the blog through the 

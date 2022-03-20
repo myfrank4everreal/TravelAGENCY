@@ -13,12 +13,11 @@
     </br>
     <hr>
  </div>
+ {{ form.media }}
 <form method = "POST" action="." enctype="multipart/form-data">
   {% csrf_token %}
-   {% comment %} {{form.as_p|as_crispy_field}} {% endcomment %}
-   {{ form.media }}
-   {{form|crispy}}
 
+    {{form|crispy}}
 
   <button class="btn btn-primary text-white" style="width:100%; margin-top:50px;" type='submit'>submit</button>
         <div class="mb-5 text-center"><img class="mb-3 rounded-circle img-thumbnail shadow-sm" src="" alt="" width="110">

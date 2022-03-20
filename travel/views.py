@@ -6,6 +6,7 @@ from marketing.models import Signup
 from travelblog.models import Blog
 from jobs.models import Jobs
 from travelblog.models import Blog
+from travel.models import Visa
 from marketing.forms import ContactForm
 
 
@@ -82,7 +83,9 @@ def travelInfo(request):
 
 
 def visaInfo(request):
-    return render(request, 'travel/visainfo.html' )
+    visa = Visa.objects.all()
+    context = {'queryset':visa}
+    return render(request, 'travel/visainfo.html', context)
 
 
 def cargoView(request):

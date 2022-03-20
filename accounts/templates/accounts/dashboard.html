@@ -26,12 +26,12 @@
     <!-- Section: Components -->
     <section class="">
       <section id="demo" class="">
-        <h3 class="text-center"><strong>Demo</strong></h3>
+        {% comment %} <h3 class="text-center"><strong>Demo</strong></h3>
           <div class="text-center">
             <a class="btn btn-outline-light" href="https://mdbootstrap.com/freebies/dark-theme/" target="_blank" role="button">Download dark theme</a>
         </div>
   
-        <hr class="my-5" />
+        <hr class="my-5" /> {% endcomment %}
  
         <!--Section: Tables-->
 
@@ -89,7 +89,7 @@
               </tr>
             </thead>
             <tbody>
-              {% for job in admin_job %}
+              {% for post in blog %}
               <tr>
                 <th scope="row">1</th>
                 <td>{{job.job_title}}</td>

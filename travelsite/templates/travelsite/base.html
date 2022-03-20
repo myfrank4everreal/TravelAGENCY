@@ -39,8 +39,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   
-
-
+    
     {% comment %} crispy forms style {% endcomment %}
      {% comment %} <link href="{% static 'travelsite/uniformdev_style/css/uni-form.css' %}" rel="stylesheet"/>
       <link href="{% static 'travelsite/uniformdev_style/css/style.uni-form.css' %}" rel="stylesheet"/> {% endcomment %}
@@ -223,10 +222,14 @@
       </div>
     </footer>
     <!-- JavaScript files-->
-    <script src="{% static 'travelsite/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'travelsite/' %}"></script>
+
+    <script src="{% static 'travelsite/js/myjs.js' %}"></script>
     <script src="{% static 'travelsite/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'travelsite/vendor/owl.carousel2/owl.carousel.min.js' %}"></script>
     <script src="{% static 'travelsite/js/front.js' %}"></script>
+
+    
     {% comment %} for the tinyMCE {% endcomment %}
     <script src= '{% static "travelsite/mytinymce/highlight.pack.js" %}'></script>
     <script>hljs.initHighlightingOnload();</script>

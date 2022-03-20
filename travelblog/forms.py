@@ -30,10 +30,10 @@ class BlogForm(forms.ModelForm):
         model = Blog
         # select the field we need in the create form
 
-        fields = ['title', 'image', 'description',  'category', 'featuredpost']
+        fields = ('title', 'image', 'description',  'category', 'featuredpost')
 
 
-        
+       
 
 #  class="form-control" name="message" rows="5" placeholder="Leave your message"
 class CommentForm(forms.ModelForm):

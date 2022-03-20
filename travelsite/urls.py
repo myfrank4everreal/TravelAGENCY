@@ -42,7 +42,7 @@ urlpatterns = [
     path('presic-jobs/', include('jobs.urls')),
     path('presic-jobs/', jobView, name='job'),
     path('presic-jobs/city/<id>/', cityjob, name='city-job'),
-    path('presic-jobs/category/<id>/', catjobs, name='category'),
+    path('presic-jobs/category/<id>/', catjobs, name='job-cats'),
     
     path('presic-jobs/<id>/', jobDetail, name='job-detail'),
     path('presic-jobs/<id>/job-list-update', updateJob, name='job-update'),

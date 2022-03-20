@@ -8,10 +8,12 @@
         <h1>Tour and visa services in UAE(Dubai)</h1>
         <p class="mb-0">Amaizing destinations around dubai</p>
       </div>
-      <div class="  destinations-slider owl-carousel owl-theme nav-center-custom owl-padding"><a class="destination d-flex align-items-end bg-center bg-cover" href="post.html" style=" height:250px; background: url({% static 'travelsite/img/travel-home-4.jpg' %})">
+
+      <div class="  destinations-slider owl-carousel owl-theme nav-center-custom owl-padding"><a class="destination d-flex align-items-end bg-center bg-cover  "  style=" height:250px; background: url({% static 'travelsite/img/travel-home-4.jpg' %})">
           <div class="destination-inner w-100 text-center text-white index-forward has-transition">
              <h2 class="h3 mb-4">Desert Safari</h2>
             <p class="small text-uppercase mb-0">Dubai</p>
+            
            
             <div class="btn btn-primary btn-block destination-btn text-white">View</div>
           </div></a><a class="destination d-flex align-items-end bg-center bg-cover" href="#" style="  height:250px; background: url({% static 'travelsite/img/travel-home-2.jpg' %});">
@@ -51,5 +53,24 @@
             <p class="small text-uppercase mb-0">Dubai</p>
             <div class="btn btn-primary btn-block destination-btn text-white">View</div>
           </div></a>
+      </div> 
+     <!-- this is for the messaging medium-->
+      <div class=" container text-center">
+
+        <h4>contact us for your Visa</h4>
+        <div class="col-lg-4  d-lg-block container ">
+          <ul class="list-inline mb-0 small ">
+            {% comment %} <li class="list-inline-item ml-auto mt-0 mb-0 p-0 "><a class="reset-anchor" href="{% url 'travel:home' %}"><img src="{% static 'travelsite/img/presic_logo2.png' %}"></a></li> {% endcomment %}
+
+            <li class="list-inline-item "><a class="reset-anchor text-center " href="mailto:presictravels@gmail.com"><i class="fab fa-email"></i><button class='btn btn-primary text-white'> presictravels@gmail.com</button></a></li>
+            <li class="list-inline-item"><a class="reset-anchor btn btn-primary text-white" href="https://www.facebook.com/presictravels"><i class="fab fa-facebook-f"></i></a></li>
+            <li class="list-inline-item"><a class="reset-anchor btn btn-primary text-white" href="#"><i class="fab fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a class="reset-anchor btn btn-primary text-white" href="https://api.whatsapp.com/send?phone=971586537619"><i class="fab fa-whatsapp"></i></a></li>
+            {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-instagram"></i></a></li> {% endcomment %}
+            {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li> {% endcomment %}
+            {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-youtube"></i></a></li>  {% endcomment %}
+            {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li> {% endcomment %}
+          </ul>
+        </div>
       </div>
     </section>

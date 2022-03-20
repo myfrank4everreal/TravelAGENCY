@@ -67,8 +67,6 @@ class Blog(models.Model):
     detail_content = HTMLField('Content')
     # richcontent = RichTextField(blank=True, null=True)
 
-    
-
     def __str__(self):
         return self.title
     

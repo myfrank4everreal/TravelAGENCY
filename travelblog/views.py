@@ -115,15 +115,53 @@ def blogDetail(request, id):
 # if request.user.is_authenticated:
 #         PostView.objects.get_or_create(user=request.user, post=post)
 
-
-
 def post_create(request):
+    
     err_msg = ''
     message = ""
-    title = 'create'
+    
+    if request.user.is_authenticated:
+        # try:
+        form = BlogForm(request.POST or None, request.FILES or None)
+        author = get_author(request.user)
+        
+        if request.method == "POST":
+            if form.is_valid():
+                form.instance.author = author
+                form.save()
+
+                return redirect(reverse("post_detail", kwargs={
+                    'id':form.instance.id
+                }))
+        # except IntegrityError as e :
+        #     e = "please contact admin  to gain access to post your blog"
+        #     err_msg = e
+        #     print(err_msg)
+        #     pass
+    
+    message = err_msg
+    form = BlogForm()
+    context = {
+        # 'title':title,
+        
+        'message':message,
+        'form':form,
+        }
+
+    return render(request, 'travelblog/post_create.html', context)
+    
+
+
+
+def post_update(request, id):
+    
+    title = 'udate'
+    err_msg = ''
+    message = ""
+    post = get_object_or_404(Blog, id=id)
     if request.user.is_authenticated:
         try:
-            form = BlogForm(request.POST or None, request.FILES or None)
+            form = BlogForm(request.POST or None, request.FILES or None, instance=post)
             author = get_author(request.user)
             
             if request.method == "POST":
@@ -143,49 +181,11 @@ def post_create(request):
     form = BlogForm()
     context = {
         'title':title,
-        
         'message':message,
         'form':form,
         }
 
     return render(request, 'travelblog/post_create.html', context)
-    
-
-
-
-def post_update(request, id):
-    pass
-    # title = 'udate'
-    # err_msg = ''
-    # message = ""
-    # post = get_object_or_404(Blog, id=id)
-    # if request.user.is_authenticated:
-    #     try:
-    #         form = BlogForm(request.POST or None, request.FILES or None, instance=post)
-    #         author = get_author(request.user)
-            
-    #         if request.method == "POST":
-    #             if form.is_valid():
-    #                 form.instance.author = author
-    #                 form.save()
-
-    #                 return redirect(reverse("post_detail", kwargs={
-    #                     'id':form.instance.id
-    #                 }))
-    #     except IntegrityError as e :
-    #         e = "please contact admin  to gain access to post your blog"
-    #         err_msg = e
-    #         print(err_msg)
-    
-    # message = err_msg
-    # form = BlogForm()
-    # context = {
-    #     'title':title,
-    #     'message':message,
-    #     'form':form,
-    #     }
-
-    # return render(request, 'travelblog/post_create.html', context)
     
 
 
