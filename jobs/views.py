@@ -42,19 +42,15 @@ def getJobAdmin(user):
     jobadmin = JobAdmin.objects.filter(user=user)
     
     if jobadmin.exists :
-        for i in jobadmin:
-            if len(i) >=1:
-                return jobadmin[0]
-    
-    else:
-        createJobAdmin(user)
         
+        print('this is the jober : ', jobadmin[0])
+        return jobadmin[0]   
         
     
 
 def jobView(request):
     
-    most_recent_post = Jobs.objects.order_by("-post_date")[0:8]
+    most_recent_post = Jobs.objects.order_by("-post_date")[0:6]
     
     featured_post = Jobs.objects.all()
     
@@ -154,18 +150,13 @@ def createJob(request):
     if request.user.is_authenticated:
         try:
             form = JobListForm(request.POST or None, request.FILES or None)
-            user = request.user
-                            
+            user = request.user          
             jobadmin = getJobAdmin(user)
-            
-            
             print('this is the : {}' .format(jobadmin))
-            
             if request.method == "POST":
                 if form.is_valid():
-                    form.instance.jobadmin = jobadmin
+                    form.instance.job_admin = jobadmin
                     form.save()
-
                     return redirect(reverse("job-detail", kwargs={
                         'id':form.instance.id
                     }))
@@ -175,7 +166,7 @@ def createJob(request):
             print(err_msg)
             return redirect('job')
     else:
-        return redirect('job')
+        return redirect('login')
     message = err_msg
     context = {
         'jobadmin':jobadmin,
@@ -193,27 +184,22 @@ def updateJob(request, id):
     err_msg=''
     message = ""
     post = get_object_or_404(Jobs, id=id)
+    form = JobListForm(request.POST or None, request.FILES or None, instance=post)
+    user = request.user
+    jobadmin = getJobAdmin(user)
+    
+    if request.method == "POST":
+        if form.is_valid():
+            form.instance.job_admin = jobadmin
+            form.save()
 
-    try:
-        form = JobListForm(request.POST or None, request.FILES or None, instance=post)
-        jobadmin = JobAdmin(request.user)
-        
-        if request.method == "POST":
-            if form.is_valid():
-                form.instance.jobadmin = jobadmin
-                form.save()
+            return redirect(reverse("job-detail", kwargs={
+                'id':form.instance.id
+            }))
 
-                return redirect(reverse("job-detail", kwargs={
-                    'id':form.instance.id
-                }))
-    except IntegrityError as e :
-        e = "please contact admin  to gain access to post your blog"
-        err_msg = e
-        print(err_msg)
-        return redirect('job')
     
     message = err_msg
-    form = JobListForm()
+    
     context = {
         "title":title,
         

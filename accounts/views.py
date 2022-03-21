@@ -20,10 +20,14 @@ def register_user(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            print(dir(user))
+            print('this is the new user :', user)
             group = Group.objects.get(name='jobadmin')
             print('this is the group :', group)
             user.groups.add(group) 
+            
+            jobadmin = JobAdmin(user=user)
+            jobadmin.save()
+            print(dir(JobAdmin))
 
             return redirect('login')
 
@@ -54,8 +58,10 @@ def logout_user(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['jobadmin'])
 def dashbaord(request):
+           
     try:
         admin_job = request.user.jobadmin.jobs_set.all()
+        print(admin_job)
     except:
         return render(request, 'accounts/newuser.html')
             

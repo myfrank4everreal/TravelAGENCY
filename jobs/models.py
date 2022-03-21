@@ -18,17 +18,17 @@ from django_countries.fields import CountryField
 User = get_user_model()
 
 
+
 class JobAdmin(models.Model):
+    
     # i change the database type from one_to_one field to ForeignKey
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     profile_pic = models.ImageField(upload_to='media', default='img/avata/avataars.png')
 
     def __str__(self):
         return self.user.username
+    
 
-    
-    
-    
 class JobCategory(models.Model):
     title = models.CharField(max_length=50)
     cat_image = models.ImageField(blank=True, null=True)
@@ -82,10 +82,7 @@ class City(models.Model):
         return reverse("city-job", kwargs={"id": self.id})
     
     
-    
-    
-    
-    
+
 class Jobs(models.Model):
     # user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     application_link = models.CharField(max_length = 200, blank=True, null=True)

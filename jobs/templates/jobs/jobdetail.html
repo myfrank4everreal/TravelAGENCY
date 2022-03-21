@@ -8,7 +8,7 @@
     <section class="py-5">
       <div class="container text-center">
         {% if post.hide_company_name == True %}
-          <h5>Company name</h5>  <h1>Confidential</h1>
+          <h5>Company name</h5>  <h6>(Confidential)</h6>
         {% else %}
         <h4>{{post.company_name}}</h4>
         {% endif %}
@@ -17,7 +17,7 @@
         <p class="h6 mb-0 text-uppercase text-primary">{{post.post_date}}</p>
         
         <h5>Job position</h5><h1>{{post.job_title}}</h1>
-        <p class="mb-3">{{post.shotend_desc}}</p>
+        <p class="mb-3">{{post.shotend_esc}}</p>
         <ul class="list-inline small text-uppercase mb-0">
           <li class="list-inline-item align-middle"><img class="rounded-circle shadow-sm" src="{{post.job_admin.profile_pic.url}}" alt="" width="40"/></li>
           <li class="list-inline-item mr-0 text-muted align-middle">By </li>
