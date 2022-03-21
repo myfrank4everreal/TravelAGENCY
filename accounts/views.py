@@ -17,8 +17,10 @@ from .decorators import allowed_users, authenticated_user
 
 def register_user(request):
     form = RegistrationForm(request.POST or None)
+    
     if request.method == "POST":
-        form = RegistrationForm(request.POST)
+        form = RegistrationForm(request.POST or None)
+    
         if form.is_valid():
             user = form.save()
             print('this is the new user :', user)
@@ -29,8 +31,11 @@ def register_user(request):
             jobadmin = JobAdmin(user=user)
             jobadmin.save()
             print(dir(JobAdmin))
-
+        
             return redirect('login')
+        else:
+            messages.error(request, 'unsuccessful signup check your data ')
+    
 
     context = {'form':form}
     return render(request, 'accounts/register.html', context)
@@ -57,17 +62,20 @@ def logout_user(request):
     return redirect('job')
 
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['jobadmin'])
+@allowed_users(allowed_roles=['jobadmin', 'blogadmin'])
 def dashbaord(request):
            
     try:
         admin_job = request.user.jobadmin.jobs_set.all()
     except:
         return render(request, 'accounts/newuser.html')
-    author_posts = request.user.author.get_author_posts
     
+    # if request.user.author:
+    #     author_posts = request.user.author.get_author_posts()
+    # else:
+    #     pass
     context = {'admin_job':admin_job,
-               'author_posts':author_posts
+               
                }
     return render(request, 'accounts/dashboard.html', context)
 

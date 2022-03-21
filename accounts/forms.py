@@ -6,6 +6,12 @@ from django.contrib.auth.models import User
 
 
 class RegistrationForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    def clean_email(self):
+        if User.objects.filter(email=self.cleaned_data['email']).exists():
+            raise forms.ValidationError("the given email is already registered")
+        return self.cleaned_data['email']
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2' ]

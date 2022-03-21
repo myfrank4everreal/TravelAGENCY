@@ -59,7 +59,7 @@
               {% for job in admin_job %}
               <tr>
                 <th scope="row">1</th>
-                <td>{{job.job_title}}</td>
+                <td><a class='text-black' href="{{job.get_absolute_url}}">{{job.job_title}}</a></td>
                 <td>{{job.post_date}}</td>
                 <td><a href='{{job.get_update_url}}'>Updatepost</a></td>
                 <td><a href="{{job.get_delete_post}}" >Delete post</a></td>
@@ -106,6 +106,8 @@
           {% comment %} <a class="btn btn-primary mb-5 text-center text-white" href="{% url 'post-create' %}" role="button">Post blog</a> {% endcomment %}
 
         </section>
+        {% else %}
+           
         {% endif %}
        
         <!--Section: Tables-->
