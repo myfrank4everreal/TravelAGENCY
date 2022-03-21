@@ -209,3 +209,10 @@ def updateJob(request, id):
 
     
     return render(request, 'jobs/createjob.html', context)
+
+
+def delete_job(request, id):
+    jobpost = get_object_or_404(Jobs, id=id)
+    print(dir(jobpost))
+    jobpost.delete()
+    return redirect('dashboard')

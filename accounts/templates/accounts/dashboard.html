@@ -37,9 +37,9 @@
 
         <section>
           <div class="text-center">
-            <h2><strong>Your posts</strong></h2>
+            <h4><strong>Job Posts</strong></h4>
 
-            <a class="btn btn-primary mb-5 text-white" href="{% url 'make-job' %}" role="button">Post Job</a>
+            <a class="btn btn-primary mb-5 text-white" href="{% url 'make-job' %}" role="button">Post New Job</a>
             
           </div>
              {% for post in job_admin_post %}
@@ -52,6 +52,7 @@
                 <th scope="col">Job Posts</th>
                 <th scope="col">Post date</th>
                 <th scope="col">update</th>
+                <th scope="col">delete</th>
               </tr>
             </thead>
             <tbody>
@@ -60,7 +61,9 @@
                 <th scope="row">1</th>
                 <td>{{job.job_title}}</td>
                 <td>{{job.post_date}}</td>
-                <td><a href='{{job.get_update_url}}'>udatepost</a></td>
+                <td><a href='{{job.get_update_url}}'>Updatepost</a></td>
+                <td><a href="{{job.get_delete_post}}" >Delete post</a></td>
+                
               </tr>
               {% endfor %}
             </tbody>
@@ -71,14 +74,14 @@
         <!-- post blog -->
     {% if request.user.author %}
         <section>
-          <div class="text-center mb-5 mt-5">
-            {% comment %} <h2><strong>Your posts</strong></h2> {% endcomment %}
+          <div class="text-center">
+            <h4><strong>Blog Posts</strong></h4>
 
+            <a class="btn btn-primary mb-5 text-white" href="{% url 'post-create' %}" role="button">Post New Blog</a>
             
           </div>
-             {% for post in job_admin_post %}
-             {{ post }}
-             {% endfor %}
+          
+             
           <table class="table table-striped">
             <thead>
               <tr>
@@ -89,18 +92,18 @@
               </tr>
             </thead>
             <tbody>
-              {% for post in blog %}
+              {% for post in author_posts %}
               <tr>
                 <th scope="row">1</th>
-                <td>{{job.job_title}}</td>
-                <td>{{job.post_date}}</td>
-                <td><a href='{{job.get_update_url}}'>udatepost</a></td>
+                <td><a href="{{post.get_absolute_url}}">{{post.title}}</a></td>
+                <td>{{post.post_date}}</td>
+                <td><a href="{{post.blog_update_url}}">udatepost</a></td>
               </tr>
               {% endfor %}
             </tbody>
           </table>
 
-          <a class="btn btn-primary mb-5 text-center text-white" href="{% url 'post-create' %}" role="button">Post blog</a>
+          {% comment %} <a class="btn btn-primary mb-5 text-center text-white" href="{% url 'post-create' %}" role="button">Post blog</a> {% endcomment %}
 
         </section>
         {% endif %}

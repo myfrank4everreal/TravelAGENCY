@@ -44,6 +44,9 @@ class Author(models.Model):
 
     def __str__(self):
         return self.user.username
+    
+    def get_author_posts(self):
+        return self.blog_set.all()
 
 class Category(models.Model):
     title = models.CharField(max_length=50)
@@ -78,7 +81,7 @@ class Blog(models.Model):
         return reverse('post_detail', kwargs={"id":self.id})
     
     
-    def get_update_url(self):
+    def blog_update_url(self):
         return reverse('post-update', kwargs={"id":self.id})
 
     def get_delete_url(self):

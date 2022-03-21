@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from django.contrib import messages
+from travelblog.models import Author
 
 from .decorators import allowed_users, authenticated_user
 
@@ -61,11 +62,13 @@ def dashbaord(request):
            
     try:
         admin_job = request.user.jobadmin.jobs_set.all()
-        print(admin_job)
     except:
         return render(request, 'accounts/newuser.html')
-            
-    context = {'admin_job':admin_job}
+    author_posts = request.user.author.get_author_posts
+    
+    context = {'admin_job':admin_job,
+               'author_posts':author_posts
+               }
     return render(request, 'accounts/dashboard.html', context)
 
 

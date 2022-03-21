@@ -116,7 +116,7 @@ def blogDetail(request, id):
 #         PostView.objects.get_or_create(user=request.user, post=post)
 
 def post_create(request):
-    
+    title = 'Create blog post'
     err_msg = ''
     message = ""
     
@@ -140,7 +140,7 @@ def post_create(request):
         #     pass
     
     message = err_msg
-    form = BlogForm()
+    
     context = {
         # 'title':title,
         
@@ -154,31 +154,26 @@ def post_create(request):
 
 
 def post_update(request, id):
-    
-    title = 'udate'
+    title = 'Blog post update'
     err_msg = ''
     message = ""
     post = get_object_or_404(Blog, id=id)
+    form = BlogForm(request.POST or None, request.FILES or None, instance=post)
     if request.user.is_authenticated:
-        try:
-            form = BlogForm(request.POST or None, request.FILES or None, instance=post)
-            author = get_author(request.user)
-            
-            if request.method == "POST":
-                if form.is_valid():
-                    form.instance.author = author
-                    form.save()
+        author = get_author(request.user)
+        if request.method == "POST":
+            if form.is_valid():
+                form.instance.author = author
+                form.save()
 
-                    return redirect(reverse("post_detail", kwargs={
-                        'id':form.instance.id
-                    }))
-        except IntegrityError as e :
-            e = "please contact admin  to gain access to post your blog"
-            err_msg = e
-            print(err_msg)
+                return redirect(reverse("post_detail", kwargs={
+                    'id':form.instance.id
+                }))
+    else:
+        return redirect('login')   
     
     message = err_msg
-    form = BlogForm()
+    
     context = {
         'title':title,
         'message':message,

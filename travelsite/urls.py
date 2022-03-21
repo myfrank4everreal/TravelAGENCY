@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from travelblog.views import blogView, blogDetail, search, post_delete, post_create, post_update
-from jobs.views import jobView, jobDetail, updateJob, cityjob, catjobs, createJob
+from jobs.views import jobView, jobDetail, updateJob, cityjob, catjobs, createJob, delete_job
 
 from accounts.views import dashbaord
 from filebrowser.sites import site
@@ -46,7 +46,7 @@ urlpatterns = [
     
     path('presic-jobs/<id>/', jobDetail, name='job-detail'),
     path('presic-jobs/<id>/job-list-update', updateJob, name='job-update'),
-    # path('job-list-delete/<id>/', jobDetail, name='job-detail'),
+    path('delete-job/<id>/', delete_job, name='delete-job'),
 
 
     # for the  blog 
@@ -54,7 +54,7 @@ urlpatterns = [
     path('blog/', blogView, name='blog'),
     path('blog/<id>/', blogDetail, name='post_detail'),
     # path('create-blog/', post_create, name='post-create'),
-    path('blog/<id>/update', updateJob, name='post-update'),
+    path('blog/<id>/update', post_update, name='post-update'),
     path('blog/<id>/delete', post_delete, name='post-delete'),
     
     path('accounts/', include('allauth.urls')),

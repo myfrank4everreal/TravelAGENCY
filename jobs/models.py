@@ -133,8 +133,8 @@ class Jobs(models.Model):
     def get_update_url(self):
         return reverse('job-update', kwargs={"id":self.id})
 
-    def get_delete_url(self):
-        return reverse('job-delete', kwargs={"id":self.id})
+    def get_delete_post(self):
+        return reverse('delete-job', kwargs={"id":self.id})
 
 
     
