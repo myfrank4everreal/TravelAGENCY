@@ -6,16 +6,16 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Presic Travels And Recruitment Services</title>
+    <title>Presic Travels Jobs And Recruitment Services</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     {% comment %} facebook meta tag {% endcomment %}
     <meta property="og:url"           content="https://presictravels.herokuapp.com/"> <!--web site url to share -->
     <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Presic travels tours & recruitment Services">
+    <meta property="og:title"         content="Presic travels tours jobs and recruitment Services">
     <meta property="og:description"   content=" We take care of all your travel needs ">
-    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg">
+    <meta property="og:image"         content="https://presictravels.herokuapp.com/path/image.jpg">
      
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="{% static 'travelsite/vendor/bootstrap/css/bootstrap.min.css' %}">
@@ -104,6 +104,8 @@
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li> {% endcomment %}
                 <li class="list-inline-item "><a class="reset-anchor" href="mailto:presictravels@gmail.com"><i class="fab fa-email"></i>presictravels@gmail.com</a></li>
                 {% if request.user.is_authenticated %}
+                <li class="list-inline-item "><a class="reset-anchor" href=""><h6></h6></a></li> 
+
 
                 {% else %}
                 <li class="list-inline-item "><a class="reset-anchor" href="{% url 'login' %}"><h6>login</h6></a></li> 
@@ -133,7 +135,7 @@
           <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto text-light">
               <li class="nav-item px-1">
-                <!-- Link--><a class="nav-link active" href="{% url 'travel:home' %}">Home</a>
+                <!-- Link--><a class="nav-link active" href="/">Home</a>
               </li>
               <li class="nav-item px-1">
                 <!-- Link--><a class="nav-link" href="{% url 'blog' %}">Blog</a>
