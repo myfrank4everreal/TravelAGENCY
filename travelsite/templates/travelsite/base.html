@@ -103,7 +103,12 @@
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-instagram"></i></a></li> {% endcomment %}
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li> {% endcomment %}
                 <li class="list-inline-item "><a class="reset-anchor" href="mailto:presictravels@gmail.com"><i class="fab fa-email"></i>presictravels@gmail.com</a></li>
-                {% comment %}  {% endcomment %}
+                {% if request.user.is_authenticated %}
+
+                {% else %}
+                <li class="list-inline-item "><a class="reset-anchor" href="{% url 'login' %}"><h6>login</h6></a></li> 
+                <li class="list-inline-item " ><a class="reset-anchor" href="{% url 'make-job' %}"><h6>post job</h6></a></li> 
+                {% endif %}
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-youtube"></i></a></li>  {% endcomment %}
                 {% comment %} <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-vimeo-v"></i></a></li> {% endcomment %}
               </ul>
